@@ -1,0 +1,129 @@
+{
+  "name": "stream-mock",
+  "version": "1.0.0",
+  "description": "Node stream mock module",
+  "main": "lib/index.js",
+  "repository": "https://github.com/BastienAr/stream-mock.git",
+  "author": "Bastien Arata <bastyen.a@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "babel src/main -d build",
+    "build-doc": "jsdoc -c .jsdocrc && cp resources/doc/* doc",
+    "clean": "rm -rf .nyc_output doc coverage build reports",
+    "coverage": "nyc report --reporter=cobertura",
+    "debug": "source .env && DEBUG=oplog-tail* babel-watch src/main/app.js",
+    "lint": "xo",
+    "lint-ci": "mkdir -p reports && xo --reporter checkstyle > reports/lint-report.xml",
+    "start": "NODE_ENV=production node build/app.js",
+    "test": "NODE_ENV=test LOG_LEVEL=silent nyc mocha --require babel-register --recursive ./src/test --timeout 50000",
+    "test-ci": "NODE_ENV=test LOG_LEVEL=silent multi='xunit=reports/ut-report.xml nyan=-' nyc --silent mocha --require babel-register --reporter mocha-multi --recursive ./src/test --timeout 50000",
+    "test-debug": "DEBUG=oplog-tail* NODE_ENV=test mocha --require babel-register --recursive ./src/test --timeout 50000 --grep"
+  },
+  "dependencies": {
+    "debug": "^3.1.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^8.2.1",
+    "babel-plugin-module-resolver": "^3.1.0",
+    "babel-plugin-transform-rename-import": "^2.1.1",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "babel-watch": "^2.0.7",
+    "chai": "^4.1.2",
+    "docdash": "^0.4.0",
+    "eslint": "^4.16.0",
+    "eslint-config-zavatta": "^6.0.1",
+    "eslint-import-resolver-babel-module": "^4.0.0",
+    "eslint-plugin-import": "^2.9.0",
+    "jsdoc": "^3.5.5",
+    "mocha": "^5.0.0",
+    "mocha-multi": "^1.0.1",
+    "nyc": "^11.4.1",
+    "xo": "^0.20.1"
+  },
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "parserOptions": {
+      "ecmaVersion": 8,
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "experimentalObjectRestSpread": true
+      }
+    },
+    "rules": {
+      "semi": 2
+    }
+  },
+  "babel": {
+    "presets": [
+      "env",
+      "stage-0"
+    ],
+    "env": {
+      "test": {
+        "plugins": [
+          [
+            "transform-rename-import", [{
+                "original": "ioredis",
+                "replacement": "ioredis-mock"
+              },
+              {
+                "original": "^([\\.\\/\\w]+)conf$",
+                "replacement": "$1../test/conf-mock"
+              }
+            ]
+          ]
+        ]
+      }
+    },
+    "plugins": [
+      "transform-runtime", [
+        "module-resolver",
+        {
+          "root": [
+            "./src/main"
+          ],
+          "alias": {
+            "test": "./src/test"
+          }
+        }
+      ]
+    ]
+  },
+  "xo": {
+    "space": true,
+    "cwd": "src/main",
+    "settings": {
+      "import/resolver": {
+        "babel-module": {}
+      }
+    },
+    "rules": {
+      "object-curly-spacing": [
+        "error",
+        "always"
+      ],
+      "one-var": [
+        "error",
+        {
+          "var": "always",
+          "let": "always",
+          "const": "never"
+        }
+      ]
+    }
+  },
+  "nyc": {
+    "register": "babel-register",
+    "include": [
+      "src/main/**/*.js"
+    ],
+    "all": true,
+    "sourceMap": false,
+    "instrument": true,
+    "report-dir": "reports"
+  }
+}
