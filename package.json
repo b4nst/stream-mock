@@ -7,17 +7,14 @@
   "author": "Bastien Arata <bastyen.a@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "babel src/main -d build",
-    "build-doc": "jsdoc -c .jsdocrc && cp resources/doc/* doc",
+    "build": "babel src/main -d lib",
+    "build-doc": "jsdoc -c .jsdocrc",
     "clean": "rm -rf .nyc_output doc coverage build reports",
     "coverage": "nyc report --reporter=cobertura",
-    "debug": "source .env && DEBUG=oplog-tail* babel-watch src/main/app.js",
     "lint": "xo",
     "lint-ci": "mkdir -p reports && xo --reporter checkstyle > reports/lint-report.xml",
-    "start": "NODE_ENV=production node build/app.js",
-    "test": "NODE_ENV=test LOG_LEVEL=silent nyc mocha --require babel-register --recursive ./src/test --timeout 50000",
-    "test-ci": "NODE_ENV=test LOG_LEVEL=silent multi='xunit=reports/ut-report.xml nyan=-' nyc --silent mocha --require babel-register --reporter mocha-multi --recursive ./src/test --timeout 50000",
-    "test-debug": "DEBUG=oplog-tail* NODE_ENV=test mocha --require babel-register --recursive ./src/test --timeout 50000 --grep"
+    "test": "NODE_ENV=test nyc mocha --require babel-register --recursive ./src/test",
+    "test-ci": "NODE_ENV=test multi='xunit=reports/ut-report.xml nyan=-' nyc --silent mocha --require babel-register --reporter mocha-multi --recursive ./src/test"
   },
   "dependencies": {
     "debug": "^3.1.0"
@@ -67,14 +64,13 @@
         "plugins": [
           [
             "transform-rename-import", [{
-                "original": "ioredis",
-                "replacement": "ioredis-mock"
-              },
-              {
-                "original": "^([\\.\\/\\w]+)conf$",
-                "replacement": "$1../test/conf-mock"
-              }
-            ]
+              "original": "ioredis",
+              "replacement": "ioredis-mock"
+            },
+            {
+              "original": "^([\\.\\/\\w]+)conf$",
+              "replacement": "$1../test/conf-mock"
+            }]
           ]
         ]
       }
