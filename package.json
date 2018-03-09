@@ -10,11 +10,10 @@
     "build": "babel src/main -d lib",
     "build-doc": "jsdoc -c .jsdocrc",
     "clean": "rm -rf .nyc_output doc coverage build reports",
-    "coverage": "nyc report --reporter=cobertura",
+    "debug": "DEBUG=stream-mock:* babel-watch src/main/index.js",
+    "coverage": "nyc report --reporter=html",
     "lint": "xo",
-    "lint-ci": "mkdir -p reports && xo --reporter checkstyle > reports/lint-report.xml",
-    "test": "NODE_ENV=test nyc mocha --require babel-register --recursive ./src/test",
-    "test-ci": "NODE_ENV=test multi='xunit=reports/ut-report.xml nyan=-' nyc --silent mocha --require babel-register --reporter mocha-multi --recursive ./src/test"
+    "test": "DEBUG=stream-mock:* NODE_ENV=test nyc mocha --require babel-register --recursive ./src/test"
   },
   "dependencies": {
     "debug": "^3.1.0"
@@ -63,7 +62,8 @@
       "test": {
         "plugins": [
           [
-            "transform-rename-import", [{
+            "transform-rename-import", [
+            {
               "original": "ioredis",
               "replacement": "ioredis-mock"
             },
@@ -120,6 +120,6 @@
     "all": true,
     "sourceMap": false,
     "instrument": true,
-    "report-dir": "reports"
+    "report-dir": "coverage"
   }
 }
