@@ -11,7 +11,6 @@
     "build-doc": "jsdoc -c .jsdocrc",
     "clean": "rm -rf .nyc_output doc coverage build reports",
     "debug": "DEBUG=stream-mock:* babel-watch src/main/index.js",
-    "coverage": "nyc report --reporter=html",
     "lint": "xo",
     "test": "DEBUG=stream-mock:* NODE_ENV=test nyc mocha --require babel-register --recursive ./src/test"
   },
@@ -21,9 +20,8 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-eslint": "^8.2.1",
-    "babel-plugin-module-resolver": "^3.1.0",
-    "babel-plugin-transform-rename-import": "^2.1.1",
     "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-plugin-istanbul": "^4.1.5",
     "babel-preset-env": "^1.6.1",
     "babel-preset-stage-0": "^6.24.1",
     "babel-register": "^6.26.0",
@@ -61,32 +59,12 @@
     "env": {
       "test": {
         "plugins": [
-          [
-            "transform-rename-import", [
-            {
-              "original": "ioredis",
-              "replacement": "ioredis-mock"
-            },
-            {
-              "original": "^([\\.\\/\\w]+)conf$",
-              "replacement": "$1../test/conf-mock"
-            }]
-          ]
+          ["istanbul"]
         ]
       }
     },
     "plugins": [
-      "transform-runtime", [
-        "module-resolver",
-        {
-          "root": [
-            "./src/main"
-          ],
-          "alias": {
-            "test": "./src/test"
-          }
-        }
-      ]
+      "transform-runtime"
     ]
   },
   "xo": {
@@ -113,13 +91,18 @@
     }
   },
   "nyc": {
-    "register": "babel-register",
+    "require": [
+      "babel-register"
+    ],
     "include": [
       "src/main/**/*.js"
     ],
+    "reporter": [
+      "lcov",
+      "text"
+    ],
     "all": true,
     "sourceMap": false,
-    "instrument": true,
-    "report-dir": "coverage"
+    "instrument": false
   }
 }
