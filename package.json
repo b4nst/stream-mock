@@ -37,6 +37,7 @@
     "mocha": "^5.0.0",
     "mocha-multi": "^1.0.1",
     "nyc": "^11.4.1",
+    "sinon": "^4.4.2",
     "xo": "^0.20.1"
   },
   "eslintConfig": {
@@ -60,7 +61,7 @@
     "env": {
       "test": {
         "plugins": [
-          ["istanbul",  [
+          ["istanbul", [
             "module-resolver",
             {
               "root": [
