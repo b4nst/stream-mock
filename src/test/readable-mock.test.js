@@ -23,7 +23,7 @@ describe('ReadableMock', () => {
       if (objectMode) {
         actual.should.equal(expected);
       } else {
-        actual.toString().should.equal(expected.toString());
+        actual.equals(Buffer.from(expected.toString())).should.be.true;
       }
     }
 
@@ -39,7 +39,7 @@ describe('ReadableMock', () => {
 
       it('should produce data from generator source', done => {
         const arr = [1, 2, 3, 4, 5];
-        const gen = function * () {
+        const gen = function* () {
           for (let i = 0; i < arr.length; i++) {
             yield arr[i];
           }
