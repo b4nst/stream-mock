@@ -1,4 +1,5 @@
 /* eslint-env mocha */
+/* eslint-disable no-unused-expressions */
 import chai from 'chai';
 
 import ReadableMock from '../main/readable-mock';
@@ -39,11 +40,13 @@ describe('ReadableMock', () => {
 
       it('should produce data from generator source', done => {
         const arr = [1, 2, 3, 4, 5];
-        const gen = function* () {
+
+        function* gen() {
           for (let i = 0; i < arr.length; i++) {
             yield arr[i];
           }
-        };
+        }
+
         const stream = new ReadableMock(gen(), options);
         let index = 0;
 

@@ -92,6 +92,7 @@
         "error",
         "always"
       ],
+      "generator-star-spacing": ["error", "after"],
       "one-var": [
         "error",
         {

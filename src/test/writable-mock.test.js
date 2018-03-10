@@ -1,13 +1,14 @@
 /* eslint-env mocha */
-import chai from 'chai';
+/* eslint-disable no-unused-expressions */
 import { Writable } from 'stream';
+import chai from 'chai';
 import sinon from 'sinon';
 
 import WritableMock from '../main/writable-mock';
 import ReadableMock from '../main/readable-mock';
 
 describe('WritableMock', () => {
-  const should = chai.should();
+  chai.should();
 
   it('should construct a stream writer', () => {
     const writer = new WritableMock();
@@ -26,7 +27,7 @@ describe('WritableMock', () => {
       writer.destroy();
     });
 
-    it('should write objects', (done) => {
+    it('should write objects', done => {
       // Given
       const cb = sinon.spy();
       const datas = [1, { foo: 'bar' }, 'string', true];
@@ -43,7 +44,7 @@ describe('WritableMock', () => {
       });
     });
 
-    it('should pipe with reader', (done) => {
+    it('should pipe with reader', done => {
       // Given
       const datas = [1, { foo: 'bar' }, 'string', true];
       const reader = new ReadableMock(datas, { objectMode: true });
@@ -68,10 +69,10 @@ describe('WritableMock', () => {
       writer.destroy();
     });
 
-    it('should write buffer', (done) => {
+    it('should write buffer', done => {
       // Given
       const cb = sinon.spy();
-      const data = "I'm a proud string";
+      const data = 'I\'m a proud string';
       // When
       writer.write(Buffer.from(data), cb);
       writer.end();
@@ -85,9 +86,9 @@ describe('WritableMock', () => {
       });
     });
 
-    it('should pipe with reader', (done) => {
+    it('should pipe with reader', done => {
       // Given
-      const data = "I'm a proud string";
+      const data = 'I\'m a proud string';
       const reader = new ReadableMock(data);
       // When
       reader.pipe(writer);

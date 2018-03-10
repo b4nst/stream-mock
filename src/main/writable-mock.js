@@ -19,7 +19,10 @@ export default class WritableMock extends Writable {
 
   _final(callback) {
     if (!this._writableState.objectMode) {
-      const length = this.data.reduce((acc, curr) => acc += curr.length, 0);
+      const length = this.data.reduce((acc, curr) => {
+        acc += curr.length;
+        return acc;
+      }, 0);
       const buf = Buffer.alloc(length);
       let offset = 0;
       for (const d of this.data) {
