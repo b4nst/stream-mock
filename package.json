@@ -11,7 +11,7 @@
     "build-doc": "jsdoc -c .jsdocrc",
     "clean": "rm -rf .nyc_output doc coverage build reports",
     "debug": "DEBUG=stream-mock:* babel-watch src/main/index.js",
-    "lint": "xo",
+    "lint": "NODE_ENV=test xo",
     "test": "DEBUG=stream-mock:* NODE_ENV=test nyc mocha --require babel-register --recursive ./src/test"
   },
   "dependencies": {
@@ -20,6 +20,7 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-eslint": "^8.2.1",
+    "babel-plugin-module-resolver": "^3.1.0",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-plugin-istanbul": "^4.1.5",
     "babel-preset-env": "^1.6.1",
@@ -59,7 +60,17 @@
     "env": {
       "test": {
         "plugins": [
-          ["istanbul"]
+          ["istanbul",  [
+            "module-resolver",
+            {
+              "root": [
+                "./src/main"
+              ],
+              "alias": {
+                "test": "./src/test"
+              }
+            }
+          ]]
         ]
       }
     },
