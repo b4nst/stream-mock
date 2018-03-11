@@ -23,10 +23,6 @@ describe('WritableMock', () => {
       writer = new WritableMock({ objectMode: true });
     });
 
-    afterEach(() => {
-      writer.destroy();
-    });
-
     it('should write objects', done => {
       // Given
       const cb = sinon.spy();
