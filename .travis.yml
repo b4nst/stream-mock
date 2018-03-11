@@ -5,7 +5,6 @@ env:
     - CC_TEST_REPORTER_ID=af7bf7206a9341eeaad5e1e06a1d39a6fa4ddf7c490aa6e7bcc62c037b44f891
 
 node_js:
-  - '6'
   - '8'
 
 before_script:
