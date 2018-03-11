@@ -1,6 +1,21 @@
+/**
+ * @module readable-mock
+ * @requires stream.Readable
+ */
 import { Readable } from 'stream';
 
-export default class ReadableMock extends Readable {
+/**
+ * ReadableMock take it's input from an iterable instance and emit data for each value.
+ * @class
+ * @extends stream.Readable
+ * @memberof module:readable-mock
+ */
+class ReadableMock extends Readable {
+  /**
+   * @constructs
+   * @param {*} source Source of the reader. Must be iterable.
+   * @param {object} options Nodejs {@link https://nodejs.org/api/stream.html#stream_readable_streams stream.Readable} options.
+   */
   constructor(source, options) {
     super(options);
     if (source === null || typeof source[Symbol.iterator] !== 'function') {
@@ -9,6 +24,10 @@ export default class ReadableMock extends Readable {
     this._it = source[Symbol.iterator]();
   }
 
+  /**
+   * @private
+   * @see {@link https://nodejs.org/api/stream.html#stream_readable_read_size_1 Nodejs documentation}
+   */
   _read() {
     const next = this._it.next();
     if (next.done) {
@@ -21,3 +40,5 @@ export default class ReadableMock extends Readable {
     }
   }
 }
+
+export default ReadableMock;

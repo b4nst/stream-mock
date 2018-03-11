@@ -8,8 +8,8 @@
   "license": "MIT",
   "scripts": {
     "build": "babel src/main -d lib",
-    "build-doc": "jsdoc -c .jsdocrc",
-    "clean": "rm -rf .nyc_output doc coverage build reports",
+    "build-doc": "rm -rf ./doc && jsdoc -c .jsdocrc",
+    "clean": "rm -rf .nyc_output coverage build reports",
     "debug": "DEBUG=stream-mock:* babel-watch src/main/index.js",
     "lint": "NODE_ENV=test xo",
     "test": "DEBUG=stream-mock:* NODE_ENV=test nyc mocha --require babel-register --recursive ./src/test"
@@ -20,15 +20,14 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-eslint": "^8.2.1",
+    "babel-plugin-istanbul": "^4.1.5",
     "babel-plugin-module-resolver": "^3.1.0",
     "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-plugin-istanbul": "^4.1.5",
     "babel-preset-env": "^1.6.1",
     "babel-preset-stage-0": "^6.24.1",
     "babel-register": "^6.26.0",
     "babel-watch": "^2.0.7",
     "chai": "^4.1.2",
-    "docdash": "^0.4.0",
     "eslint": "^4.16.0",
     "eslint-config-zavatta": "^6.0.1",
     "eslint-import-resolver-babel-module": "^4.0.0",
@@ -38,6 +37,7 @@
     "mocha-multi": "^1.0.1",
     "nyc": "^11.4.1",
     "sinon": "^4.4.2",
+    "tui-jsdoc-template": "^1.2.2",
     "xo": "^0.20.1"
   },
   "eslintConfig": {
@@ -61,17 +61,19 @@
     "env": {
       "test": {
         "plugins": [
-          ["istanbul", [
-            "module-resolver",
-            {
-              "root": [
-                "./src/main"
-              ],
-              "alias": {
-                "test": "./src/test"
+          [
+            "istanbul", [
+              "module-resolver",
+              {
+                "root": [
+                  "./src/main"
+                ],
+                "alias": {
+                  "test": "./src/test"
+                }
               }
-            }
-          ]]
+            ]
+          ]
         ]
       }
     },
@@ -81,7 +83,7 @@
   },
   "xo": {
     "space": true,
-    "cwd": "src/main",
+    "ignore": ["doc"],
     "settings": {
       "import/resolver": {
         "babel-module": {}
@@ -92,7 +94,10 @@
         "error",
         "always"
       ],
-      "generator-star-spacing": ["error", "after"],
+      "generator-star-spacing": [
+        "error",
+        "after"
+      ],
       "one-var": [
         "error",
         {
