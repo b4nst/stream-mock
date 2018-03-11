@@ -10,7 +10,7 @@ Mock nodejs streams.
 ## Features
 
 - Create a [readable stream](https://nodejs.org/api/stream.html#stream_readable_streams) from any iterable
-- Create a [writable strean](https://nodejs.org/api/stream.html#stream_writable_streams) that puts it's data at your disposal
+- Create a [writable stream](https://nodejs.org/api/stream.html#stream_writable_streams) that puts it's data at your disposal
 - Works with both [object](https://nodejs.org/api/stream.html#stream_object_mode) and normal ( [Buffer](https://nodejs.org/api/buffer.html#buffer_buf_length) ) mode
 
 ## Quick start
