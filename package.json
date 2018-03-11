@@ -8,7 +8,7 @@
   "license": "MIT",
   "scripts": {
     "build": "babel src/main -d lib",
-    "build-doc": "rm -rf ./doc && jsdoc -c .jsdocrc",
+    "build-doc": "rm -rf ./docs && jsdoc -c .jsdocrc",
     "clean": "rm -rf .nyc_output coverage build reports",
     "debug": "DEBUG=stream-mock:* babel-watch src/main/index.js",
     "lint": "NODE_ENV=test xo",
@@ -83,7 +83,7 @@
   },
   "xo": {
     "space": true,
-    "ignore": ["doc"],
+    "ignore": ["docs"],
     "settings": {
       "import/resolver": {
         "babel-module": {}
