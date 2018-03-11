@@ -5,8 +5,6 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/a2f2d69c643398bef333/maintainability)](https://codeclimate.com/github/BastienAr/stream-mock/maintainability)
 [![dependencies Status](https://david-dm.org/BastienAr/stream-mock/status.svg)](https://david-dm.org/BastienAr/stream-mock)
 
-![logo](https://raw.githubusercontent.com/BastienAr/stream-mock/master/resources/logo.png)
-
 Mock nodejs streams.
 
 ## Features
@@ -71,9 +69,13 @@ describe('Test me if you can', (done) => {
 
 ![magic](https://media.giphy.com/media/12NUbkX6p4xOO4/giphy.gif)
 
+### API documentation
+
+Full API doc is hosted [here](https://bastienar.github.io/stream-mock/)
+
 ## Contributing
 
-stream-mock is currently on early stage. In that sense this module is quite basic. If you need (or think of) other useful features related to nodejs Strean mock, do not hesitate to raise an issue. We will discuss about the better way to implement such feature. You could even make a PR !
+stream-mock is currently on early stage. I'm happily receiving new PR or discussing about new features, improvment or bug report. If you need something that this module is lacking (related to Nodejs stream mock obviously), do not hesitate to raise an issue.
 
 ### Developper side
 
@@ -84,5 +86,10 @@ yarn run test
 yarn run lint
 ```
 
+![Thats all folks](https://media.giphy.com/media/lD76yTC5zxZPG/giphy.gif)
+
+----------------
+
 ## License
-Icons made by [Freepik](http://www.freepik.com) from [www.flaticon.com](https://www.flaticon.com/) is licensed by [CC 3.0 BY](http://creativecommons.org/licenses/by/3.0/)
+
+MIT
