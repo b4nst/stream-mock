@@ -68,7 +68,8 @@
 <li>Create a <a href="https://nodejs.org/api/stream.html#stream_writable_streams">writable strean</a> that puts it's data at your disposal</li>
 <li>Works with both <a href="https://nodejs.org/api/stream.html#stream_object_mode">object</a> and normal ( <a href="https://nodejs.org/api/buffer.html#buffer_buf_length">Buffer</a> ) mode</li>
 </ul>
-<h2>Examples</h2><p>You are building an awesome brand new <a href="https://nodejs.org/api/stream.html#stream_duplex_and_transform_streams">Transform stream</a> that rounds all your values. </p>
+<h2>Quick start</h2><pre class="prettyprint source lang-shell"><code>yarn install --dev stream-mock</code></pre><p>Or, if you more a <code>npm</code> person</p>
+<pre class="prettyprint source lang-shell"><code>npm -i -D stream-mock</code></pre><h3>Basic usage</h3><p>You are building an awesome brand new <a href="https://nodejs.org/api/stream.html#stream_duplex_and_transform_streams">Transform stream</a> that rounds all your values. </p>
 <pre class="prettyprint source lang-javascript"><code>import { Transform } from 'stream';
 
 export default class Rounder extends Transform {
@@ -99,7 +100,10 @@ describe('Test me if you can', (done) => {
         })
     });
 });</code></pre><p><img src="https://media.giphy.com/media/12NUbkX6p4xOO4/giphy.gif" alt="magic"></p>
-<h2>License</h2><p>Icons made by <a href="http://www.freepik.com">Freepik</a> from <a href="https://www.flaticon.com/">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/">CC 3.0 BY</a></p></article>
+<h2>Contributing</h2><p>stream-mock is currently on early stage. In that sense this module is quite basic. If you need (or think of) other useful features related to nodejs Strean mock, do not hesitate to raise an issue. We will discuss about the better way to implement such feature. You could even make a PR !</p>
+<h3>Developper side</h3><p>If you have to write code in that repository, please be kind to run unit tests and lint before pushing. Yeah the linter is quite strict, but it's for the best !</p>
+<pre class="prettyprint source lang-shell"><code>yarn run test
+yarn run lint</code></pre><h2>License</h2><p>Icons made by <a href="http://www.freepik.com">Freepik</a> from <a href="https://www.flaticon.com/">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/">CC 3.0 BY</a></p></article>
     </section>
 
 
