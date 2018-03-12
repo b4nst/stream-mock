@@ -6,6 +6,9 @@
   "repository": "https://github.com/BastienAr/stream-mock.git",
   "author": "Bastien Arata <bastyen.a@gmail.com>",
   "license": "MIT",
+  "files": [
+    "lib/"
+  ],
   "scripts": {
     "build": "babel src/main -d lib",
     "build-doc": "rm -rf ./docs && jsdoc -c .jsdocrc",
