@@ -16,7 +16,7 @@ Mock nodejs streams.
 ## Quick start
 
 ```shell
-yarn install --dev stream-mock
+yarn add --dev stream-mock
 ```
 
 Or, if you are more a `npm` person
