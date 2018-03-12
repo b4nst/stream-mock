@@ -9,9 +9,15 @@ Mock nodejs streams.
 
 ## Features
 
-- Create a [readable stream](https://nodejs.org/api/stream.html#stream_readable_streams) from any iterable
-- Create a [writable stream](https://nodejs.org/api/stream.html#stream_writable_streams) that puts its data at your disposal
-- Can operate both in [object](https://nodejs.org/api/stream.html#stream_object_mode) and normal ( [Buffer](https://nodejs.org/api/buffer.html#buffer_buf_length) ) mode
+- Create a
+  [readable stream](https://nodejs.org/api/stream.html#stream_readable_streams)
+  from any iterable.
+- Create a
+  [writable stream](https://nodejs.org/api/stream.html#stream_writable_streams)
+  that puts its data at your disposal.
+- Can operate both in
+  [object](https://nodejs.org/api/stream.html#stream_object_mode) and normal
+  ( [Buffer](https://nodejs.org/api/buffer.html#buffer_buf_length) ) mode.
 
 ## Quick start
 
@@ -75,11 +81,17 @@ Full API doc is hosted [here](https://bastienar.github.io/stream-mock/)
 
 ## Contributing
 
-stream-mock is currently on early stage. I'm happily receiving new PR or discussing about new features, improvement or bug report. If you need something that this module is lacking (related to Nodejs stream mock obviously), do not hesitate to raise an issue.
+stream-mock is currently on early stage.
+I'm happily receiving new PR or discussing about new features,
+improvement or bug report.
+If you need something that this module is lacking
+(related to Nodejs stream mock obviously), do not hesitate to raise an issue.
 
 ### Developper side
 
-If you have to write code in that repository, please be kind to run unit tests and lint before pushing. Yeah the linter is quite strict, but it's for the best !
+If you have to write code in that repository,
+please be kind to run unit tests and lint before pushing.
+Yeah the linter is quite strict, but it's for the best !
 
 ```shell
 yarn run test

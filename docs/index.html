@@ -63,9 +63,15 @@
 <a href="https://david-dm.org/BastienAr/stream-mock"><img src="https://david-dm.org/BastienAr/stream-mock/status.svg" alt="dependencies Status"></a></p>
 <p>Mock nodejs streams.</p>
 <h2>Features</h2><ul>
-<li>Create a <a href="https://nodejs.org/api/stream.html#stream_readable_streams">readable stream</a> from any iterable</li>
-<li>Create a <a href="https://nodejs.org/api/stream.html#stream_writable_streams">writable stream</a> that puts its data at your disposal</li>
-<li>Can operate both in <a href="https://nodejs.org/api/stream.html#stream_object_mode">object</a> and normal ( <a href="https://nodejs.org/api/buffer.html#buffer_buf_length">Buffer</a> ) mode</li>
+<li>Create a
+<a href="https://nodejs.org/api/stream.html#stream_readable_streams">readable stream</a>
+from any iterable.</li>
+<li>Create a
+<a href="https://nodejs.org/api/stream.html#stream_writable_streams">writable stream</a>
+that puts its data at your disposal.</li>
+<li>Can operate both in
+<a href="https://nodejs.org/api/stream.html#stream_object_mode">object</a> and normal
+( <a href="https://nodejs.org/api/buffer.html#buffer_buf_length">Buffer</a> ) mode.</li>
 </ul>
 <h2>Quick start</h2><pre class="prettyprint source lang-shell"><code>yarn add --dev stream-mock</code></pre><p>Or, if you are more a <code>npm</code> person</p>
 <pre class="prettyprint source lang-shell"><code>npm -i -D stream-mock</code></pre><h3>Basic usage</h3><p>You are building an awesome brand new <a href="https://nodejs.org/api/stream.html#stream_duplex_and_transform_streams">Transform stream</a> that rounds all your values.</p>
@@ -100,8 +106,14 @@ describe('Test me if you can', (done) => {
     });
 });</code></pre><p><img src="https://media.giphy.com/media/12NUbkX6p4xOO4/giphy.gif" alt="magic"></p>
 <h3>API documentation</h3><p>Full API doc is hosted <a href="https://bastienar.github.io/stream-mock/">here</a></p>
-<h2>Contributing</h2><p>stream-mock is currently on early stage. I'm happily receiving new PR or discussing about new features, improvement or bug report. If you need something that this module is lacking (related to Nodejs stream mock obviously), do not hesitate to raise an issue.</p>
-<h3>Developper side</h3><p>If you have to write code in that repository, please be kind to run unit tests and lint before pushing. Yeah the linter is quite strict, but it's for the best !</p>
+<h2>Contributing</h2><p>stream-mock is currently on early stage.
+I'm happily receiving new PR or discussing about new features,
+improvement or bug report.
+If you need something that this module is lacking
+(related to Nodejs stream mock obviously), do not hesitate to raise an issue.</p>
+<h3>Developper side</h3><p>If you have to write code in that repository,
+please be kind to run unit tests and lint before pushing.
+Yeah the linter is quite strict, but it's for the best !</p>
 <pre class="prettyprint source lang-shell"><code>yarn run test
 yarn run lint</code></pre><p><img src="https://media.giphy.com/media/lD76yTC5zxZPG/giphy.gif" alt="Thats all folks"></p>
 <hr>
