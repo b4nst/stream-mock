@@ -6,6 +6,13 @@
   "repository": "https://github.com/BastienAr/stream-mock.git",
   "author": "Bastien Arata <bastyen.a@gmail.com>",
   "license": "MIT",
+  "keywords": [
+    "stream",
+    "mock",
+    "test",
+    "writable",
+    "readable"
+  ],
   "files": [
     "lib/"
   ],
@@ -65,8 +72,7 @@
       "test": {
         "plugins": [
           [
-            "istanbul",
-            [
+            "istanbul", [
               "module-resolver",
               {
                 "root": [
