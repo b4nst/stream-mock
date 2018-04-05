@@ -19,7 +19,7 @@
   "scripts": {
     "build": "babel src/main -d lib",
     "build-doc": "rm -rf ./docs && jsdoc -c .jsdocrc",
-    "clean": "rm -rf .nyc_output coverage build reports",
+    "clean": "rm -rf .nyc_output coverage lib reports",
     "debug": "DEBUG=stream-mock:* babel-watch src/main/index.js",
     "lint": "NODE_ENV=test xo",
     "test": "DEBUG=stream-mock:* NODE_ENV=test nyc mocha --require babel-register --recursive ./src/test"
@@ -72,8 +72,7 @@
       "test": {
         "plugins": [
           [
-            "istanbul",
-            [
+            "istanbul", [
               "module-resolver",
               {
                 "root": [
