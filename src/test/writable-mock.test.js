@@ -44,8 +44,7 @@ describe('WritableMock', () => {
       // Given
       const cb = sinon.spy();
       const datas = [1, 2, [3, 4, 5],
-        [6, 7, 8, 9]
-      ];
+        [6, 7, 8, 9]];
       // When
       for (const data of datas) {
         writer.write(data, cb);
