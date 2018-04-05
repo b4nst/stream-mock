@@ -73,6 +73,18 @@ class WritableMock extends Writable {
     }
     callback();
   }
+
+  /**
+   * If in object mode return flatten data. Usefull for readable that returns arrays (hello ioredis).
+   * @returns {(Array.object|Buffer)} The flatten data if object mode, otherwise === data
+   */
+  get flatData() {
+    if (!this._writableState.objectMode) {
+      // Buffer mode, alreday flat
+      return this.data;
+    }
+    return [].concat(...this.data);
+  }
 }
 
 export default WritableMock;

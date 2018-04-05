@@ -40,6 +40,25 @@ describe('WritableMock', () => {
       });
     });
 
+    it('should flatten array', done => {
+      // Given
+      const cb = sinon.spy();
+      const datas = [1, 2, [3, 4, 5],
+        [6, 7, 8, 9]
+      ];
+      // When
+      for (const data of datas) {
+        writer.write(data, cb);
+      }
+      writer.end();
+      // Then
+      writer.on('finish', () => {
+        cb.callCount.should.equal(datas.length);
+        writer.flatData.should.deep.equal([1, 2, 3, 4, 5, 6, 7, 8, 9]);
+        done();
+      });
+    });
+
     it('should pipe with reader', done => {
       // Given
       const datas = [1, { foo: 'bar' }, 'string', true];
@@ -78,6 +97,24 @@ describe('WritableMock', () => {
         cb.called.should.be.true;
         actual.should.be.an.instanceof(Buffer);
         actual.toString().should.equal(data);
+        done();
+      });
+    });
+
+    it('should get the same result either flat or not', done => {
+      // Given
+      const cb = sinon.spy();
+      const data = 'I\'m a proud string';
+      // When
+      writer.write(Buffer.from(data), cb);
+      writer.end();
+      // Then
+      writer.on('finish', () => {
+        const actual = writer.data;
+        cb.called.should.be.true;
+        actual.should.be.an.instanceof(Buffer);
+        actual.toString().should.equal(data);
+        writer.flatData.toString().should.equal(data);
         done();
       });
     });
