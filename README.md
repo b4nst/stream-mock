@@ -15,6 +15,9 @@ Mock nodejs streams.
 - Create a
   [writable stream](https://nodejs.org/api/stream.html#stream_writable_streams)
   that puts its data at your disposal.
+- Create a
+  [duplex stream](https://nodejs.org/api/stream.html#stream_duplex_and_transform_streams)
+  that combines a readable and writable stream together.
 - Can operate both in
   [object](https://nodejs.org/api/stream.html#stream_object_mode) and normal
   ( [Buffer](https://nodejs.org/api/buffer.html#buffer_buf_length) ) mode.
@@ -49,7 +52,7 @@ export default class Rounder extends Transform {
 Now you need / want to test it.
 
 ```javascript
-import {ReadableMock, WritableMock } from 'stream-mock';
+import {ReadableMock, WritableMock, DuplexMock } from 'stream-mock';
 import chai from 'chai';
 
 import Rounder from 'the/seven/bloody/hells';
@@ -69,6 +72,24 @@ describe('Test me if you can', (done) => {
         writer.on('finish', ()=>{
             writer.data.should.deep.equal(input.map(Math.round));
         })
+    });
+
+    it('mocks a duplex stream', (done) = {
+        // Given
+        const stream = new DuplexMock({
+          readableObjectMode: true,
+          writableObjectMode: true
+        });
+
+        stream.on('data', ({ input }) => {
+          console.log('Got input', input);
+        })
+
+        stream.write({ input: 'a'})
+        stream.write({ input: 'b'})
+        stream.write({ input: 'c'})
+
+        stream.end()
     });
 });
 ```
