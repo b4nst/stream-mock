@@ -34,7 +34,7 @@
         <ul></ul>
     </div>
     
-    <div class="lnb-api hidden"><h3>Modules</h3><ul><li><a href="module-readable-mock.html">readable-mock</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="module:readable-mock_sub"></div></li><li><a href="module-writable-mock.html">writable-mock</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="module:writable-mock_sub"></div></li></ul></div><div class="lnb-api hidden"><h3>Classes</h3><ul><li><a href="module-readable-mock.ReadableMock.html">ReadableMock</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="module:readable-mock.ReadableMock_sub"></div></li><li><a href="module-writable-mock.WritableMock.html">WritableMock</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="module:writable-mock.WritableMock_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="module-writable-mock.WritableMock.html#data">data</a></li><li><a href="module-writable-mock.WritableMock.html#flatData">flatData</a></li></ul></div></li></ul></div>
+    <div class="lnb-api hidden"><h3>Modules</h3><ul><li><a href="module-duplex-mock.html">duplex-mock</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="module:duplex-mock_sub"></div></li><li><a href="module-readable-mock.html">readable-mock</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="module:readable-mock_sub"></div></li><li><a href="module-writable-mock.html">writable-mock</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="module:writable-mock_sub"></div></li></ul></div><div class="lnb-api hidden"><h3>Classes</h3><ul><li><a href="module-readable-mock.ReadableMock.html">ReadableMock</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="module:readable-mock.ReadableMock_sub"></div></li><li><a href="module-writable-mock.WritableMock.html">WritableMock</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="module:writable-mock.WritableMock_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="module-writable-mock.WritableMock.html#data">data</a></li><li><a href="module-writable-mock.WritableMock.html#flatData">flatData</a></li></ul></div></li></ul></div>
 </nav>
 <div id="resizer"></div>
 
@@ -69,6 +69,9 @@ from any iterable.</li>
 <li>Create a
 <a href="https://nodejs.org/api/stream.html#stream_writable_streams">writable stream</a>
 that puts its data at your disposal.</li>
+<li>Create a
+<a href="https://nodejs.org/api/stream.html#stream_duplex_and_transform_streams">duplex stream</a>
+that combines a readable and writable stream together.</li>
 <li>Can operate both in
 <a href="https://nodejs.org/api/stream.html#stream_object_mode">object</a> and normal
 ( <a href="https://nodejs.org/api/buffer.html#buffer_buf_length">Buffer</a> ) mode.</li>
@@ -83,7 +86,7 @@ export default class Rounder extends Transform {
     callback();
   }
 }</code></pre><p>Now you need / want to test it.</p>
-<pre class="prettyprint source lang-javascript"><code>import {ReadableMock, WritableMock } from 'stream-mock';
+<pre class="prettyprint source lang-javascript"><code>import {ReadableMock, WritableMock, DuplexMock } from 'stream-mock';
 import chai from 'chai';
 
 import Rounder from 'the/seven/bloody/hells';
@@ -103,6 +106,24 @@ describe('Test me if you can', (done) => {
         writer.on('finish', ()=>{
             writer.data.should.deep.equal(input.map(Math.round));
         })
+    });
+
+    it('mocks a duplex stream', (done) = {
+        // Given
+        const stream = new DuplexMock({
+          readableObjectMode: true,
+          writableObjectMode: true
+        });
+
+        stream.on('data', ({ input }) => {
+          console.log('Got input', input);
+        })
+
+        stream.write({ input: 'a'})
+        stream.write({ input: 'b'})
+        stream.write({ input: 'c'})
+
+        stream.end()
     });
 });</code></pre><p><img src="https://media.giphy.com/media/12NUbkX6p4xOO4/giphy.gif" alt="magic"></p>
 <h3>API documentation</h3><p>Full API doc is hosted <a href="https://bastienar.github.io/stream-mock/">here</a></p>
