@@ -4,6 +4,8 @@
  */
 import { Writable } from 'stream';
 
+import CommonWritable from './commons/writable';
+
 /**
  * WritableMock writes it's input to data field. If options.objectMode is true, data will be an Array, otherwise it will be a Buffer.
  * @class
@@ -33,9 +35,8 @@ class WritableMock extends Writable {
    * @param {string} encoding  If the chunk is a string, then encoding is the character encoding of that string. If chunk is a Buffer, or if the stream is operating in object mode, encoding may be ignored.
    * @param {function} callback Call this function (optionally with an error argument) when processing is complete for the supplied chunk.
    */
-  _write(chunk, encoding, callback) {
-    this.data.push(chunk);
-    callback();
+  _write(...args) {
+    Reflect.apply(CommonWritable._write, this, args);
   }
 
   /**
@@ -45,10 +46,8 @@ class WritableMock extends Writable {
    * @param {Array} chunks The chunks to be written. Each chunk has following format: { chunk: ..., encoding: ... }.
    * @param {function} callback A callback function (optionally with an error argument) to be invoked when processing is complete for the supplied chunks.
    */
-  _writev(chunks, callback) {
-    const datas = chunks.map(c => c.chunk);
-    this.data = this.data.concat(datas);
-    callback();
+  _writev(...args) {
+    Reflect.apply(CommonWritable._writev, this, args);
   }
 
   /**
@@ -57,21 +56,8 @@ class WritableMock extends Writable {
    * @private
    * @param {function} callback callback function
    */
-  _final(callback) {
-    if (!this._writableState.objectMode) {
-      const length = this.data.reduce((acc, curr) => {
-        acc += curr.length;
-        return acc;
-      }, 0);
-      const buf = Buffer.alloc(length);
-      let offset = 0;
-      for (const d of this.data) {
-        d.copy(buf, offset);
-        offset += d.length;
-      }
-      this.data = buf;
-    }
-    callback();
+  _final(...args) {
+    Reflect.apply(CommonWritable._final, this, args);
   }
 
   /**
@@ -79,11 +65,7 @@ class WritableMock extends Writable {
    * @returns {(Array.object|Buffer)} The flatten data if object mode, otherwise === data
    */
   get flatData() {
-    if (!this._writableState.objectMode) {
-      // Buffer mode, alreday flat
-      return this.data;
-    }
-    return [].concat(...this.data);
+    return Reflect.apply(CommonWritable.flatData, this, []);
   }
 }
 
