@@ -31,7 +31,7 @@ yarn add --dev stream-mock
 Or, if you are more a `npm` person
 
 ```shell
-npm -i -D stream-mock
+npm i -D stream-mock
 ```
 
 ### Basic usage
