@@ -46,7 +46,7 @@
     "mocha": "^5.0.0",
     "mocha-multi": "^1.0.1",
     "nyc": "^12.0.1",
-    "sinon": "^6.0.0",
+    "sinon": "^7.2.4",
     "tui-jsdoc-template": "^1.2.2",
     "xo": "^0.21.0"
   },
