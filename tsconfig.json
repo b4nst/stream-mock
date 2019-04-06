@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "declaration": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "removeComments": true,
+    "outDir": "lib",
+    "rootDir": "./src",
+    "sourceMap": true,
+    "target": "es6"
+  },
+  "include": ["./src/**/*"],
+  "exclude": ["node_modules"]
+}
