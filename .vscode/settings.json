@@ -1,6 +1,5 @@
 {
-  "mocha.files.glob": "test/**/*.test.ts",
-  "mocha.requires": ["ts-node/register"],
   "typescript.referencesCodeLens.enabled": true,
-  "typescript.implementationsCodeLens.enabled": true
+  "typescript.implementationsCodeLens.enabled": true,
+  "typescript.preferences.importModuleSpecifier": "relative"
 }

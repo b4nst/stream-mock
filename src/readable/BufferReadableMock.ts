@@ -1,5 +1,7 @@
 import { Readable, ReadableOptions } from 'stream';
 
+import { any2Buffer } from '../helpers/converters/any2Buffer';
+
 import IReadableMock from './IReadableMock';
 
 export default class BufferReadableMock extends Readable
@@ -8,7 +10,7 @@ export default class BufferReadableMock extends Readable
   private encoding: string;
 
   constructor(
-    source: ReadonlyArray<any> | Buffer | Uint8Array | string,
+    source: Iterable<any> | ArrayLike<any>,
     options: ReadableOptions = {}
   ) {
     options.objectMode = false;
@@ -19,8 +21,7 @@ export default class BufferReadableMock extends Readable
 
   _read() {
     const next = this.it.next();
-    this.push(
-      next.done ? null : Buffer.from(next.value.toString(), this.encoding)
-    );
+    if (next.done) this.push(null);
+    else this.push(any2Buffer(next.value, this.encoding));
   }
 }

@@ -1,22 +1,18 @@
 import { Writable, WritableOptions } from 'stream';
 
-import IWritableMock from './IWritableMock';
+import { chunk2Buffer } from '../helpers';
 
-const chunk2Buffer = (chunk: { chunk: Buffer | string; encoding: string }) =>
-  typeof chunk.chunk == 'string'
-    ? Buffer.from(chunk.chunk, chunk.encoding)
-    : chunk.chunk;
+import IWritableMock from './IWritableMock';
 
 export default class BufferWritableMock extends Writable
   implements IWritableMock {
-  private datas: Buffer[];
-  data: Buffer;
+  data: Buffer[];
+  flatData: Buffer;
 
   constructor(options: WritableOptions = {}) {
     options.objectMode = false;
     super(options);
-
-    this.datas = [];
+    this.data = [];
   }
 
   _write(
@@ -24,7 +20,7 @@ export default class BufferWritableMock extends Writable
     encoding: string,
     callback: (error?: Error | null) => void
   ) {
-    this.datas.push(chunk2Buffer({ chunk, encoding }));
+    this.data.push(chunk2Buffer({ chunk, encoding }));
     callback();
   }
 
@@ -32,16 +28,12 @@ export default class BufferWritableMock extends Writable
     chunks: Array<{ chunk: Buffer | string; encoding: string }>,
     callback: (error?: Error | null) => void
   ) {
-    this.datas = this.datas.concat(chunks.map(chunk2Buffer));
+    this.data = this.data.concat(chunks.map(chunk2Buffer));
     callback();
   }
 
   _final(callback: (error?: Error | null) => void) {
-    this.data = Buffer.concat(this.datas);
+    this.flatData = Buffer.concat(this.data);
     callback();
-  }
-
-  get flatData() {
-    return this.data;
   }
 }

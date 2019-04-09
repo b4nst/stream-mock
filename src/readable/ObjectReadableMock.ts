@@ -7,16 +7,16 @@ export default class ObjectReadableMock extends Readable
   it: IterableIterator<any>;
 
   constructor(
-    source: ReadonlyArray<any> | string,
+    source: Iterable<any> | ArrayLike<any>,
     options: ReadableOptions = {}
   ) {
-    options.objectMode = false;
+    options.objectMode = true;
     super(options);
     this.it = source[Symbol.iterator]();
   }
 
   _read() {
     const next = this.it.next();
-    this.push(next.done ? null : next.value.toString());
+    this.push(next.done ? null : next.value);
   }
 }

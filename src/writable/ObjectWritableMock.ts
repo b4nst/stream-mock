@@ -5,9 +5,10 @@ import IWritableMock from './IWritableMock';
 export default class ObjectWritableMock extends Writable
   implements IWritableMock {
   data: any[];
+  flatData: any[];
 
   constructor(options: WritableOptions = {}) {
-    options.objectMode = false;
+    options.objectMode = true;
     super(options);
 
     this.data = [];
@@ -30,7 +31,8 @@ export default class ObjectWritableMock extends Writable
     callback();
   }
 
-  get flatData() {
-    return [].concat(...this.data);
+  _final(callback: (error?: Error | null) => void) {
+    this.flatData = [].concat(...this.data);
+    callback();
   }
 }

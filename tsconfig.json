@@ -10,6 +10,6 @@
     "sourceMap": true,
     "target": "es6"
   },
-  "include": ["./src/**/*"],
+  "include": ["./src/**/*", "src.js/test/duplex-mock.test.js"],
   "exclude": ["node_modules"]
 }
