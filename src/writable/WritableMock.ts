@@ -1,21 +1,21 @@
 import { Writable, WritableOptions } from 'stream';
 
 import { WARNINGS } from '../constant';
+import { chunk2Buffer } from '../helpers';
 import warnOnce from '../helpers/warnOnce';
 
-import BufferWritableMock from './BufferWritableMock';
 import IWritableMock from './IWritableMock';
-import ObjectWritableMock from './ObjectWritableMock';
 
 export default class WritableMock extends Writable implements IWritableMock {
-  private innerWritable: IWritableMock;
+  objectMode: boolean;
+  data: any[];
+  flatData: any[] | Buffer;
 
   constructor(options: WritableOptions = {}) {
     warnOnce(WARNINGS.DEP_WRITABLE_MOCK);
     super(options);
-    if (options.objectMode)
-      this.innerWritable = new ObjectWritableMock(options);
-    else this.innerWritable = new BufferWritableMock(options);
+    this.objectMode = options.objectMode;
+    this.data = [];
   }
 
   _write(
@@ -23,25 +23,24 @@ export default class WritableMock extends Writable implements IWritableMock {
     encoding: string,
     callback: (error?: Error | null) => void
   ) {
-    this.innerWritable._write(chunk, encoding, callback);
+    this.data.push(this.objectMode ? chunk : chunk2Buffer({ chunk, encoding }));
+    callback();
   }
 
   _writev(
     chunks: Array<{ chunk: any; encoding: string }>,
     callback: (error?: Error | null) => void
   ) {
-    this.innerWritable._writev(chunks, callback);
+    this.data = this.objectMode
+      ? this.data.concat(chunks.map(c => c.chunk))
+      : this.data.concat(chunks.map(chunk2Buffer));
+    callback();
   }
 
   _final(callback: (error?: Error | null) => void) {
-    this.innerWritable._final(callback);
-  }
-
-  get data() {
-    return this.innerWritable.data;
-  }
-
-  get flatData() {
-    return this.innerWritable.flatData;
+    this.flatData = this.objectMode
+      ? [].concat(...this.data)
+      : Buffer.concat(this.data);
+    callback();
   }
 }
