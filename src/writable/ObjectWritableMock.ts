@@ -1,11 +1,13 @@
 import { Writable, WritableOptions } from 'stream';
 
+import { Chunk } from '../types';
+
 import IWritableMock from './IWritableMock';
 
 export default class ObjectWritableMock extends Writable
   implements IWritableMock {
-  data: any[];
-  flatData: any[];
+  public data: any[];
+  public flatData: any[];
 
   constructor(options: WritableOptions = {}) {
     options.objectMode = true;
@@ -14,7 +16,8 @@ export default class ObjectWritableMock extends Writable
     this.data = [];
   }
 
-  _write(
+  // tslint:disable-next-line:function-name Not responsible of this function name
+  public _write(
     chunk: any,
     _encoding: string,
     callback: (error?: Error | null) => void
@@ -23,15 +26,14 @@ export default class ObjectWritableMock extends Writable
     callback();
   }
 
-  _writev(
-    chunks: Array<{ chunk: any; encoding: string }>,
-    callback: (error?: Error | null) => void
-  ) {
+  // tslint:disable-next-line:function-name Not responsible of this function name
+  public _writev(chunks: Chunk[], callback: (error?: Error | null) => void) {
     this.data = this.data.concat(chunks.map(c => c.chunk));
     callback();
   }
 
-  _final(callback: (error?: Error | null) => void) {
+  // tslint:disable-next-line:function-name Not responsible of this function name
+  public _final(callback: (error?: Error | null) => void) {
     this.flatData = [].concat(...this.data);
     callback();
   }

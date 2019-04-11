@@ -21,7 +21,7 @@
     "build:ts": "tsc",
     "build-doc": "rm -rf ./docs && jsdoc -c .jsdocrc",
     "clean": "rimraf lib coverage .nyc_output yarn-error.log test-result.xml lint-result.xml",
-    "lint": "NODE_ENV=test xo",
+    "lint": "tslint src/**/*.ts",
     "test": "jest --coverage"
   },
   "dependencies": {},

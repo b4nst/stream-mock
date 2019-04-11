@@ -3,7 +3,7 @@ export enum WARNING_TYPES {
 }
 
 export default class Warning extends Error {
-  code?: string;
+  public code?: string;
 
   constructor(msg: string, name: WARNING_TYPES, code: string) {
     super(msg);

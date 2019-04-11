@@ -1,7 +1,9 @@
 {
-    "extends": [
-        "tslint:latest",
-        ["tslint-microsoft-contrib/recommended"],
-        "tslint-config-prettier"
-      ]
+  "extends": [ "tslint:latest", "tslint-microsoft-contrib/recommended", "tslint-config-prettier" ],
+  "rules": {
+      "no-relative-imports": false,
+      "variable-name": [true, "ban-keywords", "check-format", "allow-leading-underscore", "require-const-for-all-caps"],
+      "curly": [true, "ignore-same-line"],
+      "array-type": [true, "array"]
+  }
 }

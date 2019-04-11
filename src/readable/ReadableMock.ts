@@ -12,10 +12,10 @@ import ObjectReadableMock from './ObjectReadableMock';
  * ReadableMock take it's input from an iterable instance and emit data for each value.
  */
 export default class ReadableMock extends Readable implements IReadableMock {
-  it: IterableIterator<any>;
-  objectMode: boolean;
-  readableObjectMode: boolean;
-  encoding: string;
+  public it: IterableIterator<any>;
+  public objectMode: boolean;
+  public readableObjectMode: boolean;
+  public encoding: string;
 
   constructor(
     source: Iterable<any> | ArrayLike<any>,
@@ -29,11 +29,16 @@ export default class ReadableMock extends Readable implements IReadableMock {
     this.it = source[Symbol.iterator]();
   }
 
-  _read(_size: number) {
+  // tslint:disable-next-line:function-name Not responsible of this function name
+  public _read(_size: number) {
     const next = this.it.next();
 
-    if (next.done) this.push(null);
-    else if (this.objectMode || this.readableObjectMode) this.push(next.value);
-    else this.push(any2Buffer(next.value, this.encoding));
+    if (next.done) {
+      this.push(null);
+    } else if (this.objectMode || this.readableObjectMode) {
+      this.push(next.value);
+    } else {
+      this.push(any2Buffer(next.value, this.encoding));
+    }
   }
 }

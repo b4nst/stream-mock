@@ -3,14 +3,15 @@ import { Writable, WritableOptions } from 'stream';
 import { WARNINGS } from '../constant';
 import { chunk2Buffer } from '../helpers';
 import warnOnce from '../helpers/warnOnce';
+import { Chunk } from '../types';
 
 import IWritableMock from './IWritableMock';
 
 export default class WritableMock extends Writable implements IWritableMock {
-  objectMode: boolean;
-  writableObjectMode: boolean;
-  data: any[];
-  flatData: any[] | Buffer;
+  public objectMode: boolean;
+  public writableObjectMode: boolean;
+  public data: any[];
+  public flatData: any[] | Buffer;
 
   constructor(options: WritableOptions = {}) {
     warnOnce(WARNINGS.DEP_WRITABLE_MOCK);
@@ -20,7 +21,8 @@ export default class WritableMock extends Writable implements IWritableMock {
     this.data = [];
   }
 
-  _write(
+  // tslint:disable-next-line:function-name Not responsible of this function name
+  public _write(
     chunk: any,
     encoding: string,
     callback: (error?: Error | null) => void
@@ -33,10 +35,8 @@ export default class WritableMock extends Writable implements IWritableMock {
     callback();
   }
 
-  _writev?(
-    chunks: Array<{ chunk: any; encoding: string }>,
-    callback: (error?: Error | null) => void
-  ) {
+  // tslint:disable-next-line:function-name Not responsible of this function name
+  public _writev?(chunks: Chunk[], callback: (error?: Error | null) => void) {
     this.data =
       this.objectMode || this.writableObjectMode
         ? this.data.concat(chunks.map(c => c.chunk))
@@ -44,7 +44,8 @@ export default class WritableMock extends Writable implements IWritableMock {
     callback();
   }
 
-  _final(callback: (error?: Error | null) => void) {
+  // tslint:disable-next-line:function-name Not responsible of this function name
+  public _final(callback: (error?: Error | null) => void) {
     this.flatData =
       this.objectMode || this.writableObjectMode
         ? [].concat(...this.data)

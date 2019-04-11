@@ -4,7 +4,7 @@ import IReadableMock from './IReadableMock';
 
 export default class ObjectReadableMock extends Readable
   implements IReadableMock {
-  it: IterableIterator<any>;
+  public it: IterableIterator<any>;
 
   constructor(
     source: Iterable<any> | ArrayLike<any>,
@@ -15,7 +15,8 @@ export default class ObjectReadableMock extends Readable
     this.it = source[Symbol.iterator]();
   }
 
-  _read() {
+  // tslint:disable-next-line:function-name Not responsible of this function name
+  public _read() {
     const next = this.it.next();
     this.push(next.done ? null : next.value);
   }

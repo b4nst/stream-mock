@@ -5,13 +5,13 @@ import { ReadableMock } from '../readable';
 import { WritableMock } from '../writable';
 
 class DuplexMock extends Duplex implements WritableMock, ReadableMock {
-  it: IterableIterator<any>;
-  objectMode: boolean;
-  readableObjectMode: boolean;
-  writableObjectMode: boolean;
-  data: any[];
-  flatData: any[] | Buffer;
-  encoding: string;
+  public it: IterableIterator<any>;
+  public objectMode: boolean;
+  public readableObjectMode: boolean;
+  public writableObjectMode: boolean;
+  public data: any[];
+  public flatData: any[] | Buffer;
+  public encoding: string;
 
   constructor(
     source?: Iterable<any> | ArrayLike<any>,
@@ -24,7 +24,7 @@ class DuplexMock extends Duplex implements WritableMock, ReadableMock {
     this.data = [];
     if (source) {
       this.it = source[Symbol.iterator]();
-    } else if (this.readableObjectMode == this.writableObjectMode) {
+    } else if (this.readableObjectMode === this.writableObjectMode) {
       this.it = this.data[Symbol.iterator]();
     } else {
       throw new Error(
