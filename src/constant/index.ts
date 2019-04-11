@@ -1,1 +1,1 @@
-export * from './warning';
+export * from './WARNINGS';

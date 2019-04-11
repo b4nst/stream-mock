@@ -4,9 +4,7 @@ import { WARNINGS } from '../constant';
 import { any2Buffer } from '../helpers/converters/any2Buffer';
 import warnOnce from '../helpers/warnOnce';
 
-import BufferReadableMock from './BufferReadableMock';
 import IReadableMock from './IReadableMock';
-import ObjectReadableMock from './ObjectReadableMock';
 
 /**
  * ReadableMock take it's input from an iterable instance and emit data for each value.

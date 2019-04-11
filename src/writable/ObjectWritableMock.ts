@@ -1,6 +1,6 @@
 import { Writable, WritableOptions } from 'stream';
 
-import { Chunk } from '../types';
+import { IChunk } from '../types';
 
 import IWritableMock from './IWritableMock';
 
@@ -27,7 +27,7 @@ export default class ObjectWritableMock extends Writable
   }
 
   // tslint:disable-next-line:function-name Not responsible of this function name
-  public _writev(chunks: Chunk[], callback: (error?: Error | null) => void) {
+  public _writev(chunks: IChunk[], callback: (error?: Error | null) => void) {
     this.data = this.data.concat(chunks.map(c => c.chunk));
     callback();
   }
