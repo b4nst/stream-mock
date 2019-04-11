@@ -19,10 +19,18 @@ class DuplexMock extends Duplex implements WritableMock, ReadableMock {
   ) {
     super(options);
     this.objectMode = options.objectMode;
-    this.readableObjectMode = options.readableObjectMode;
-    this.writableObjectMode = options.writableObjectMode;
+    this.readableObjectMode = options.objectMode || options.readableObjectMode;
+    this.writableObjectMode = options.objectMode || options.writableObjectMode;
     this.data = [];
-    this.it = source ? source[Symbol.iterator]() : this.data[Symbol.iterator]();
+    if (source) {
+      this.it = source[Symbol.iterator]();
+    } else if (this.readableObjectMode == this.writableObjectMode) {
+      this.it = this.data[Symbol.iterator]();
+    } else {
+      throw new Error(
+        'Reader and writer should be either in full object mode or full buffer mode to be linked'
+      );
+    }
   }
 }
 

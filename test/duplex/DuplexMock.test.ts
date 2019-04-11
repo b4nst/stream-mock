@@ -44,7 +44,7 @@ const testWritable = (
   });
 };
 
-const doneWhenCount = (count: number, cb: () => void) => {
+const cbWhenCount = (count: number, cb: () => void) => {
   let current = 0;
   return () => {
     current++;
@@ -98,7 +98,7 @@ describe('DuplexMock', () => {
       const source = [1, 2, 3, 4, 5];
       const data = [1, 2, 3, 4, 5];
       const duplex = new DuplexMock(source, { objectMode: true });
-      const doneCb = doneWhenCount(2, done);
+      const doneCb = cbWhenCount(2, done);
 
       testReadable(duplex, source, true, doneCb);
       testWritable(duplex, data, true, doneCb);
@@ -108,7 +108,7 @@ describe('DuplexMock', () => {
       const source = Buffer.from('test');
       const data = "I'm a proud string";
       const duplex = new DuplexMock(source);
-      const doneCb = doneWhenCount(2, done);
+      const doneCb = cbWhenCount(2, done);
 
       testReadable(duplex, source, false, doneCb);
       testWritable(duplex, data, false, doneCb);
@@ -177,12 +177,50 @@ describe('DuplexMock', () => {
       const data = [1, 2, 3, 4, 5];
       const duplex = new DuplexMock(null, { objectMode: true });
 
-      duplex.write(1, err => {
-        expect(err).toBeUndefined();
-        expect(duplex.read()).toEqual(1);
+      const read = () => {
+        data.forEach(d => expect(duplex.read()).toEqual(d));
         expect(duplex.read()).toBeNull();
         done();
-      });
+      };
+      const writeCb = cbWhenCount(data.length, read);
+      data.forEach(d =>
+        duplex.write(d, err => {
+          expect(err).toBeUndefined();
+          writeCb();
+        })
+      );
+    });
+
+    test('Both mode buffer', done => {
+      const data = Array.from("I'm a proud string");
+      const duplex = new DuplexMock(null);
+
+      const read = () => {
+        data.forEach(d => expect(duplex.read()).toEqual(Buffer.from(d)));
+        expect(duplex.read()).toBeNull();
+        done();
+      };
+      const writeCb = cbWhenCount(data.length, read);
+      data.forEach(d =>
+        duplex.write(d, err => {
+          expect(err).toBeUndefined();
+          writeCb();
+        })
+      );
+    });
+
+    test('Should failed if readable mode !== writable mode', () => {
+      expect(
+        () => new DuplexMock(null, { readableObjectMode: true })
+      ).toThrowError(
+        'Reader and writer should be either in full object mode or full buffer mode to be linked'
+      );
+
+      expect(
+        () => new DuplexMock(null, { writableObjectMode: true })
+      ).toThrowError(
+        'Reader and writer should be either in full object mode or full buffer mode to be linked'
+      );
     });
   });
 });
