@@ -1,8 +1,8 @@
 import * as sinon from 'sinon';
 
-import { BufferReadableMock, ObjectReadableMock, ObjectWritableMock } from '../../src';
+import { ObjectReadableMock, ObjectWritableMock } from '../../src';
 
-describe('BufferWritableMock', () => {
+describe('ObjectReadableMock', () => {
   let writer: ObjectWritableMock;
 
   beforeEach(() => {
@@ -50,7 +50,7 @@ describe('BufferWritableMock', () => {
   it('should pipe with reader', done => {
     // Given
     const data = [1, { foo: 'bar' }, 'string', true];
-    const reader = new ObjectReadableMock(data, { objectMode: true });
+    const reader = new ObjectReadableMock(data);
     // When
     reader.pipe(writer);
     // Then
