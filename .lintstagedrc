@@ -1,0 +1,6 @@
+{
+  "*.ts": ["tslint --fix", "prettier --write", "git add"],
+  "*.json": ["prettier --parser json --write", "git add"],
+  "*.md": ["prettier --parser markdown --write", "git add"],
+  "package.json": ["prettier-package-json --write", "git add"]
+}
