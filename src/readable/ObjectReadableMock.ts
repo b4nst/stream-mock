@@ -5,10 +5,26 @@ import { Readable, ReadableOptions } from 'stream';
 
 import IReadableMock from './IReadableMock';
 
+/**
+ * ObjectReadableMock is a readable stream working in object mode.
+ *
+ * @example
+ * ```typescript
+ * import { ObjectReadableMock } from 'stream-mock';
+ *
+ * const reader = new ObjectReadableMock([1, 2, 3]);
+ * reader.on('data', console.log);
+ * ```
+ */
 export default class ObjectReadableMock extends Readable
   implements IReadableMock {
   public it: IterableIterator<any>;
 
+  /**
+   *
+   * @param source Reader source
+   * @param options Readable stream options. objectMode will be overrited to true.
+   */
   constructor(
     source: Iterable<any> | ArrayLike<any>,
     options: ReadableOptions = {}

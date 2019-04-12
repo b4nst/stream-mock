@@ -25,13 +25,13 @@ Mock nodejs streams.
 ## Quick start
 
 ```shell
-yarn add --dev stream-mock
+yarn add stream-mock
 ```
 
 Or, if you are more a `npm` person
 
 ```shell
-npm i -D stream-mock
+npm i stream-mock
 ```
 
 ### Basic usage
@@ -52,7 +52,7 @@ export default class Rounder extends Transform {
 Now you need / want to test it.
 
 ```javascript
-import {ReadableMock, WritableMock, DuplexMock } from 'stream-mock';
+import {ObjectReadableMock, ObjectWritableMock, DuplexMock } from 'stream-mock';
 import chai from 'chai';
 
 import Rounder from 'the/seven/bloody/hells';
@@ -63,33 +63,15 @@ describe('Test me if you can', (done) => {
     it('Round me like one of your french girls', {
         // Given
         const input = [1.2, 2.6, 3.7];
-        const reader = new ReadableMock(input, {objectMode: true});
-        const writer = new WritableMock({objectMode: true});
         const transform = new Rounder({objectMode: true});
+        const reader = new ObjectReadableMock(input);
+        const writer = new ObjectWritableMock();
         // When
         reader.pipe(transform).pipe(writer);
         // Then
         writer.on('finish', ()=>{
             writer.data.should.deep.equal(input.map(Math.round));
         })
-    });
-
-    it('mocks a duplex stream', (done) = {
-        // Given
-        const stream = new DuplexMock({
-          readableObjectMode: true,
-          writableObjectMode: true
-        });
-
-        stream.on('data', ({ input }) => {
-          console.log('Got input', input);
-        })
-
-        stream.write({ input: 'a'})
-        stream.write({ input: 'b'})
-        stream.write({ input: 'c'})
-
-        stream.end()
     });
 });
 ```
@@ -110,14 +92,13 @@ If you need something that this module is lacking
 
 ### Developper side
 
-If you have to write code in that repository,
-please be kind to run unit tests and lint before pushing.
-Yeah the linter is quite strict, but it's for the best !
+To run test :
 
 ```shell
 yarn run test
-yarn run lint
 ```
+
+Linter is run on commit hook base.
 
 ![Thats all folks](https://media.giphy.com/media/lD76yTC5zxZPG/giphy.gif)
 

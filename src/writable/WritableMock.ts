@@ -10,12 +10,26 @@ import { IChunk } from '../types';
 
 import IWritableMock from './IWritableMock';
 
+/**
+ * WritableMock write its data ton an internal, public accessible buffer.
+ * When finished, the data are flatten and accessible through flatData property.
+ * @deprecated Please use [[BufferReadableMock]] or [[ObjectReadableMock]] to get a better type accuracy.
+ */
 export default class WritableMock extends Writable implements IWritableMock {
   public objectMode: boolean;
   public writableObjectMode: boolean;
+  /**
+   * Internal buffer, filled on every write
+   */
   public data: any[];
+  /**
+   * Data flattern, filled on final callback (when [[WritableMock.end]]) is called.
+   */
   public flatData: any[] | Buffer;
 
+  /**
+   * @param options Writable stream options.
+   */
   constructor(options: WritableOptions = {}) {
     warnOnce(WARNINGS.DEP_WRITABLE_MOCK);
     super(options);

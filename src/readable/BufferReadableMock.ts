@@ -7,11 +7,27 @@ import { any2Buffer } from '../helpers/converters/any2Buffer';
 
 import IReadableMock from './IReadableMock';
 
+/**
+ * BufferReadableMock is a readable stream working in normal (buffer) mode.
+ *
+ * @example
+ * ```typescript
+ * import { BufferReadableMock } from 'stream-mock';
+ *
+ * const reader = new BufferReadableMock('Some text');
+ * reader.pipe(process.stdout);
+ * ```
+ */
 export default class BufferReadableMock extends Readable
   implements IReadableMock {
   public it: IterableIterator<any>;
   private encoding: string;
 
+  /**
+   *
+   * @param source Reader source. Will be transform into buffer
+   * @param options Readable stream options. objectMode will be overrited to false.
+   */
   constructor(
     source: Iterable<any> | ArrayLike<any>,
     options: ReadableOptions = {}

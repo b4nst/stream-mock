@@ -7,11 +7,40 @@ import { chunk2Buffer } from '../helpers';
 
 import IWritableMock from './IWritableMock';
 
+/**
+ * BufferWritableMock is a writable stream working in normal (buffer) mode.
+ *
+ * @example
+ * ```typescript
+ * import { BufferWritableMock } from 'stream-mock';
+ *
+ * const writer = new BufferWritableMock();
+ * writer.write('l', err => {
+ *   if (!err) console.log(writer.data);
+ * });
+ * writer.end();
+ * writer.on('finish', () => console.log(writer.flatData.toString()));
+ * ```
+ * ```bash
+ * >
+ * [ <Buffer 6c> ]
+ * l
+ * ```
+ */
 export default class BufferWritableMock extends Writable
   implements IWritableMock {
+  /**
+   * Internal buffer, filled on every write
+   */
   public data: Buffer[];
+  /**
+   * Data flattern, filled on final callback (when [[BufferWritableMock.end]]) is called.
+   */
   public flatData: Buffer;
 
+  /**
+   * @param options Writable options. objectMode will be overwritten to false.
+   */
   constructor(options: WritableOptions = {}) {
     options.objectMode = false;
     super(options);

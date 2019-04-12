@@ -11,6 +11,7 @@ import IReadableMock from './IReadableMock';
 
 /**
  * ReadableMock take it's input from an iterable instance and emit data for each value.
+ * @deprecated Please use [[BufferReadableMock]] or [[ObjectReadableMock]] to get a better type accuracy.
  */
 export default class ReadableMock extends Readable implements IReadableMock {
   public it: IterableIterator<any>;
@@ -18,6 +19,11 @@ export default class ReadableMock extends Readable implements IReadableMock {
   public readableObjectMode: boolean;
   public encoding: string;
 
+  /**
+   *
+   * @param source Reader source
+   * @param options Readable stream options.
+   */
   constructor(
     source: Iterable<any> | ArrayLike<any>,
     options: ReadableOptions = {}

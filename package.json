@@ -22,7 +22,7 @@
     "build:doc": "run-s doc:*",
     "doc:1-clean": "rimraf docs",
     "doc:2-build": "typedoc src",
-    "doc:3-sanitize": "replace $PWD '' docs",
+    "doc:3-sanitize": "rexreplace \"$PWD/\" '' --quiet docs/**/*.html",
     "clean": "rimraf lib coverage .nyc_output yarn-error.log test-result.xml lint-result.xml",
     "lint": "tslint src/**/*.ts",
     "test": "jest --coverage"
@@ -38,7 +38,7 @@
     "npm-run-all": "^4.1.5",
     "prettier": "^1.16.4",
     "prettier-package-json": "^2.1.0",
-    "replace": "^1.1.0",
+    "rexreplace": "^4.1.1",
     "rimraf": "^2.6.3",
     "sinon": "^7.3.1",
     "ts-jest": "^24.0.2",

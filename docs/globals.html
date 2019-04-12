@@ -63,108 +63,30 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<div class="tsd-panel tsd-typography">
-				<h1 id="stream-mock">Stream Mock</h1>
-				<p><a href="https://travis-ci.org/BastienAr/stream-mock"><img src="https://travis-ci.org/BastienAr/stream-mock.svg?branch=master" alt="Build Status"></a>
-					<a href="https://codeclimate.com/github/BastienAr/stream-mock/test_coverage"><img src="https://api.codeclimate.com/v1/badges/a2f2d69c643398bef333/test_coverage" alt="Test Coverage"></a>
-					<a href="https://codeclimate.com/github/BastienAr/stream-mock/maintainability"><img src="https://api.codeclimate.com/v1/badges/a2f2d69c643398bef333/maintainability" alt="Maintainability"></a>
-				<a href="https://greenkeeper.io/"><img src="https://badges.greenkeeper.io/BastienAr/stream-mock.svg" alt="Greenkeeper badge"></a></p>
-				<p>Mock nodejs streams.</p>
-				<h2 id="features">Features</h2>
-				<ul>
-					<li>Create a
-						<a href="https://nodejs.org/api/stream.html#stream_readable_streams">readable stream</a>
-					from any iterable.</li>
-					<li>Create a
-						<a href="https://nodejs.org/api/stream.html#stream_writable_streams">writable stream</a>
-					that puts its data at your disposal.</li>
-					<li>Create a
-						<a href="https://nodejs.org/api/stream.html#stream_duplex_and_transform_streams">duplex stream</a>
-					that combines a readable and writable stream together.</li>
-					<li>Can operate both in
-						<a href="https://nodejs.org/api/stream.html#stream_object_mode">object</a> and normal
-					( <a href="https://nodejs.org/api/buffer.html#buffer_buf_length">Buffer</a> ) mode.</li>
-				</ul>
-				<h2 id="quick-start">Quick start</h2>
-				<pre><code class="language-shell">yarn add --dev stream-mock</code></pre>
-				<p>Or, if you are more a <code>npm</code> person</p>
-				<pre><code class="language-shell">npm i -D stream-mock</code></pre>
-				<h3 id="basic-usage">Basic usage</h3>
-				<p>You are building an awesome brand new <a href="https://nodejs.org/api/stream.html#stream_duplex_and_transform_streams">Transform stream</a> that rounds all your values.</p>
-				<pre><code class="language-javascript"><span class="hljs-keyword">import</span> { Transform } <span class="hljs-keyword">from</span> <span class="hljs-string">'stream'</span>;
-
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Rounder</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Transform</span> </span>{
-  _transform(chunk, encoding, callback) {
-    <span class="hljs-keyword">this</span>.push(<span class="hljs-built_in">Math</span>.round(chunk));
-    callback();
-  }
-}</code></pre>
-				<p>Now you need / want to test it.</p>
-				<pre><code class="language-javascript"><span class="hljs-keyword">import</span> {ReadableMock, WritableMock, DuplexMock } <span class="hljs-keyword">from</span> <span class="hljs-string">'stream-mock'</span>;
-<span class="hljs-keyword">import</span> chai <span class="hljs-keyword">from</span> <span class="hljs-string">'chai'</span>;
-
-<span class="hljs-keyword">import</span> Rounder <span class="hljs-keyword">from</span> <span class="hljs-string">'the/seven/bloody/hells'</span>;
-
-chai.should();
-
-describe(<span class="hljs-string">'Test me if you can'</span>, (done) =&gt; {
-    it(<span class="hljs-string">'Round me like one of your french girls'</span>, {
-        <span class="hljs-comment">// Given</span>
-        <span class="hljs-keyword">const</span> input = [<span class="hljs-number">1.2</span>, <span class="hljs-number">2.6</span>, <span class="hljs-number">3.7</span>];
-        <span class="hljs-keyword">const</span> reader = <span class="hljs-keyword">new</span> ReadableMock(input, {<span class="hljs-attr">objectMode</span>: <span class="hljs-literal">true</span>});
-        <span class="hljs-keyword">const</span> writer = <span class="hljs-keyword">new</span> WritableMock({<span class="hljs-attr">objectMode</span>: <span class="hljs-literal">true</span>});
-        <span class="hljs-keyword">const</span> transform = <span class="hljs-keyword">new</span> Rounder({<span class="hljs-attr">objectMode</span>: <span class="hljs-literal">true</span>});
-        <span class="hljs-comment">// When</span>
-        reader.pipe(transform).pipe(writer);
-        <span class="hljs-comment">// Then</span>
-        writer.on(<span class="hljs-string">'finish'</span>, ()=&gt;{
-            writer.data.should.deep.equal(input.map(<span class="hljs-built_in">Math</span>.round));
-        })
-    });
-
-    it(<span class="hljs-string">'mocks a duplex stream'</span>, (done) = {
-        <span class="hljs-comment">// Given</span>
-        <span class="hljs-keyword">const</span> stream = <span class="hljs-keyword">new</span> DuplexMock({
-          <span class="hljs-attr">readableObjectMode</span>: <span class="hljs-literal">true</span>,
-          <span class="hljs-attr">writableObjectMode</span>: <span class="hljs-literal">true</span>
-        });
-
-        stream.on(<span class="hljs-string">'data'</span>, ({ input }) =&gt; {
-          <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Got input'</span>, input);
-        })
-
-        stream.write({ <span class="hljs-attr">input</span>: <span class="hljs-string">'a'</span>})
-        stream.write({ <span class="hljs-attr">input</span>: <span class="hljs-string">'b'</span>})
-        stream.write({ <span class="hljs-attr">input</span>: <span class="hljs-string">'c'</span>})
-
-        stream.end()
-    });
-});</code></pre>
-				<p><img src="https://media.giphy.com/media/12NUbkX6p4xOO4/giphy.gif" alt="magic"></p>
-				<h3 id="api-documentation">API documentation</h3>
-				<p>Full API doc is hosted <a href="https://bastienar.github.io/stream-mock/">here</a></p>
-				<h2 id="contributing">Contributing</h2>
-				<p>stream-mock is currently on early stage.
-					I&#39;m happily receiving new PR or discussing about new features,
-					improvement or bug report.
-					If you need something that this module is lacking
-				(related to Nodejs stream mock obviously), do not hesitate to raise an issue.</p>
-				<h3 id="developper-side">Developper side</h3>
-				<p>If you have to write code in that repository,
-					please be kind to run unit tests and lint before pushing.
-				Yeah the linter is quite strict, but it&#39;s for the best !</p>
-				<pre><code class="language-shell">yarn run test
-yarn run lint</code></pre>
-				<p><img src="https://media.giphy.com/media/lD76yTC5zxZPG/giphy.gif" alt="Thats all folks"></p>
-				<hr>
-				<h2 id="license">License</h2>
-				<p>MIT</p>
-			</div>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>External modules</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-external-module"><a href="modules/_example_.html" class="tsd-kind-icon">"example"</a></li>
+								<li class="tsd-kind-external-module"><a href="modules/constant.html" class="tsd-kind-icon">constant</a></li>
+								<li class="tsd-kind-external-module"><a href="modules/duplex.html" class="tsd-kind-icon">duplex</a></li>
+								<li class="tsd-kind-external-module"><a href="modules/helpers.html" class="tsd-kind-icon">helpers</a></li>
+								<li class="tsd-kind-external-module"><a href="modules/readable.html" class="tsd-kind-icon">readable</a></li>
+								<li class="tsd-kind-external-module"><a href="modules/types.html" class="tsd-kind-icon">types</a></li>
+								<li class="tsd-kind-external-module"><a href="modules/writable.html" class="tsd-kind-icon">writable</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 			<nav class="tsd-navigation primary">
 				<ul>
-					<li class="globals  ">
+					<li class="globals current ">
 						<a href="globals.html"><em>Globals</em></a>
 					</li>
 					<li class=" tsd-kind-external-module">
