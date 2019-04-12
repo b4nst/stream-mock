@@ -1,0 +1,6 @@
+{
+    "mode": "modules",
+    "out": "docs",
+    "name": "Stream Mock",
+    "readme": "README.md"
+}

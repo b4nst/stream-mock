@@ -1,3 +1,6 @@
+/**
+ * @module writable
+ */
 import { Writable, WritableOptions } from 'stream';
 
 import { chunk2Buffer } from '../helpers';

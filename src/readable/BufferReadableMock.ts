@@ -1,3 +1,6 @@
+/**
+ * @module readable
+ */
 import { Readable, ReadableOptions } from 'stream';
 
 import { any2Buffer } from '../helpers/converters/any2Buffer';

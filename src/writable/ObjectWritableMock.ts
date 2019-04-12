@@ -1,3 +1,6 @@
+/**
+ * @module writable
+ */
 import { Writable, WritableOptions } from 'stream';
 
 import { IChunk } from '../types';

@@ -1,3 +1,6 @@
+/**
+ * @module readable
+ */
 import { Readable, ReadableOptions } from 'stream';
 
 import { WARNINGS } from '../constant';

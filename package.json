@@ -19,7 +19,10 @@
   "scripts": {
     "build": "run-s build:*",
     "build:ts": "tsc",
-    "build-doc": "rm -rf ./docs && jsdoc -c .jsdocrc",
+    "build:doc": "run-s doc:*",
+    "doc:1-clean": "rimraf docs",
+    "doc:2-build": "typedoc src",
+    "doc:3-sanitize": "replace $PWD '' docs",
     "clean": "rimraf lib coverage .nyc_output yarn-error.log test-result.xml lint-result.xml",
     "lint": "tslint src/**/*.ts",
     "test": "jest --coverage"
@@ -35,13 +38,19 @@
     "npm-run-all": "^4.1.5",
     "prettier": "^1.16.4",
     "prettier-package-json": "^2.1.0",
+    "replace": "^1.1.0",
     "rimraf": "^2.6.3",
     "sinon": "^7.3.1",
     "ts-jest": "^24.0.2",
     "tslint": "^5.15.0",
     "tslint-config-prettier": "^1.18.0",
     "tslint-microsoft-contrib": "^6.1.0",
+    "typedoc": "^0.14.2",
+    "typedoc-plugin-external-module-name": "^2.0.0",
+    "typedoc-plugin-sourcefile-url": "^1.0.4",
     "typescript": "^3.4.2"
   },
-  "engines": {"node": "8.* || >= 10.*"}
+  "engines": {
+    "node": "8.* || >= 10.*"
+  }
 }

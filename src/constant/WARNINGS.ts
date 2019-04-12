@@ -1,3 +1,6 @@
+/**
+ * @module constant
+ */
 import Warning, { WARNING_TYPES } from '../helpers/Warning';
 
 export const WARNINGS = {

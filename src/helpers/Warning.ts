@@ -1,3 +1,6 @@
+/**
+ * @module helpers
+ */
 export enum WARNING_TYPES {
   DEPRECATED = 'DeprecationWarning'
 }

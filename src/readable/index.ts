@@ -1,3 +1,6 @@
+/**
+ * @module readable
+ */
 export { default as BufferReadableMock } from './BufferReadableMock';
 export { default as ObjectReadableMock } from './ObjectReadableMock';
 export { default as ReadableMock } from './ReadableMock';

@@ -1,3 +1,6 @@
+/**
+ * @module helpers
+ */
 type Constructor<T> = new (...args: any) => T;
 export default function applyMixins(
   derivcedCtor: Constructor<any>,

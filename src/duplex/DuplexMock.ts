@@ -1,3 +1,6 @@
+/**
+ * @module duplex
+ */
 import { Duplex, DuplexOptions } from 'stream';
 
 import applyMixins from '../helpers/applyMixins';

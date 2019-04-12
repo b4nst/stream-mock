@@ -1,3 +1,6 @@
+/**
+ * @module readable
+ */
 import { Readable } from 'stream';
 
 export default interface IReadableMock extends Readable {

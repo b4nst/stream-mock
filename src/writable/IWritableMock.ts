@@ -1,3 +1,6 @@
+/**
+ * @module writable
+ */
 import { Writable } from 'stream';
 
 export default interface IWritableMock extends Writable {

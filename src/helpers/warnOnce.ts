@@ -1,5 +1,6 @@
-import { WARNINGS } from '../constant';
-
+/**
+ * @module helpers
+ */
 import Warning from './Warning';
 
 const warned: { [code: string]: boolean } = {};

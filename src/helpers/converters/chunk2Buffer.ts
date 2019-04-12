@@ -1,3 +1,6 @@
+/**
+ * @module helpers
+ */
 import { IChunk } from '../../types';
 
 export const chunk2Buffer = (chunk: IChunk) =>
