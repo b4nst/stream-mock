@@ -7,7 +7,17 @@ node_js:
 - '8'
 - '10'
 - '11'
+
 before_install: yarn global add greenkeeper-lockfile@1
+
+stages:
+  - test
+  - name: prepare release
+    if: (branch = master) AND (commit_message =~ /^:construction_worker: bump( (major|minor|patch))?$/)
+  - name: deploy
+    if: tag =~ ^v
+
+# Default test stage
 before_script:
 - greenkeeper-lockfile-update
 - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64
@@ -15,8 +25,31 @@ before_script:
 - chmod +x ./cc-test-reporter
 - "./cc-test-reporter before-build"
 script:
-- yarn run lint
 - yarn run test
+- yarn run lint
 after_script:
 - greenkeeper-lockfile-upload
 - "./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT"
+
+
+jobs:
+  include:
+    - stage: deploy
+      node_js: "10"
+      script: yarn run build
+      deploy:
+        provider: npm
+        email: bastyen.a@gmail.com
+        api_key: 
+          secure: cgfFTdIIFiXt4ZzOHSbfBlc656vrKLIP/6m5qVQBSoDMvw9TpX81YqP443V/SWLCXNx+yN/w5+HTOw4Jshp6suM42VrZpy0KZxmPSQybkNUM1rKxyAVuUD8MPyCTw9e6xB5ZXgRODrc3gcdeRylwtaZ17eTPSk9rlFQjaPsNRt3I+//baL/lFZuEBbWIbSekFiumUw1aMh/k4z6c367fjk18iDaVxQUGXKEf4BtEozBlqkttHCf25Wyf+6uHvdGw3UZf9SSQLtGyLOu7MQ621HNIkSaoFlI/oNqziDPRNMzfxSR3e9geFmdbPGs7Et7Fut33AZNko+UQ3E8M6iJc4ICYE74gRlSdsg63Rs41P1JVb2nK7wGi7R89joCzc2xSlD+ppWRpYh+UY8tzp3r8Gn81ESKCVBmM1icSbjCsUW/ih0OvYNydSjCf+BhnB7kC607HT16qczPp1peOWlY41IJ/kEKwOPrQXTWmrjk5Qd3lwWz7BjlXTrOL6gYkb/H/H5gWoUMAj700wk28sJ/4DTps1oOBVrYJwQU0rPY5Rs+7OK0M/lJb6ayNMzTE1BPSRQCwynhUdDcPyk6TQa7VMINbx+uxDgwclDXWjvNOTgsGaTuLaurDxNgvXbI7JJLxrQpHkHLUvjQFOxDR9XvO0AglHJHqefrvT+0LJZW7HGU=
+        on:
+          tags: true
+          repo: BastienAr/stream-mock
+    - stage: prepare release
+      node_js: "10"
+      script:
+        - yarn run build
+        - resources/scripts/bump-version
+        - git add .
+        - git commit -m ':construction_worker: release ready'
+        - git push --tags
