@@ -13,7 +13,8 @@ before_install: yarn global add greenkeeper-lockfile@1
 stages:
   - test
   - name: prepare release
-    if: (branch = master) AND (commit_message =~ /^:construction_worker: bump( (major|minor|patch))?$/)
+    if: "(branch = master) AND \
+        (commit_message =~ /^:construction_worker: bump( (major|minor|patch))?$/)"
   - name: deploy
     if: tag =~ ^v
 
