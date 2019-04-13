@@ -1,6 +1,6 @@
 {
   "name": "stream-mock",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Node stream mock module",
   "main": "lib/index.js",
   "repository": "https://github.com/BastienAr/stream-mock.git",
