@@ -3,7 +3,6 @@ env:
   global:
   - CC_TEST_REPORTER_ID=af7bf7206a9341eeaad5e1e06a1d39a6fa4ddf7c490aa6e7bcc62c037b44f891
   - secure: nVCwrF0BnT5tLSZHSqqhq52H4PWrL73mMm2uvJ+pRgzGpj2PGD6rM8s0vQHjQfWeRlRARfPaqIyvjhGpqHAy0YxWvp53w28C0oQYOE6I8i+8ADFKYebuN4VdnA+VkJT1628rjdImaCtXfvrLmnHNv8laovsvwPMqm6f6ld469/R7Na2thIOd0FwAoY/520iOc1dl3ffHxsIJJSuELaeXIY2dtTCx2xiovgiObjSV1UdFmJIzjJzmIHbP3df7gTH6misyK6CbZzKPbtRdnPpx7fznKaKhOQ2a6oG1wFUn8UHXQTAgmznvAOWdc4Sm2qIgh7seE2NQlwC6wRyOlL/HjPeydTfMGmpmbHFgKsGjoPPKr0VttvUSBfl6R4jYAr1+QaQ0bh1E94Zuqu/MGEyEZvIHTl6uydxwvDDNDMPOAhvvXB+JqzzXQveGA7NQQO3RWEJJuVTB4rMgj1JMkc89QqvUwbBtJjY+T8TwelkLsGoPXNzPTF44DXX/tL/VgMhIFe+SblM6b1v8ZWAM4LjosuPdVtMVl/putyyV9dFVq3j1Nmghk31ed7FQQlxZi/kc79w6VlpleAsXIcQVx7uZERfuMXCoi4ENfdYktvAcV+N2r/Lntf78nRLl7xWrTD6cBzlX2t98iIATGOOF6wgsx55WWdN5jDtqb5oLPinZQuA=
-  - secure: b38cqbTo8ftEyKbkF0BRx8bue64Jmm7Ip6zNsmMTnwm3y98wGPPfvsLqIVl04kOJHuTC5hvH0jbM1q6NeI7SVWI7fJ/UAgPq3Q/g7yBjGYBcPSodol8sWT0nZLOPL5NK4uhs7PR+CaBQTcuEsvTvkHH5Thfl4D3+xlyXRNUlPnAzbGHA4A6KSOOnLRqYg6HdZmEdDvjsWTUsqPPSWUPK2Zr0XZVL1nQGVrX3DnF/BDxhQSohLk92FzVWv8pYOCzAdOhjvzXWXxD/UKmmtkj2qt85a822ZiduZKBaus6o5W5aX0t6AIxdCoL1iDEPPTM8ONizul4FtzGblhBKmyO2VLJ/jjqzObS+7gJCOxyiYtY0N4oAbZRU4Asvrh9qPK2bj227Xr225MyUE2EqpbUm64ZA7Wo/5UXKVDTlIdQTjkgjdmIVVSKztc3RLHzsXfESsgUur9epelg1rOoEPG87VRI9WqsDYuCnq29pcmst5sWNGk7FDvyXuj61N+jFMnVsODQvtJzibhGzWeEgjNQ8iRksv1iEZSbQiodn7UuOK9D3DdrL5tZA2P2xEkdLMFZ+jN8pmjmTpHDpcPbptF/EWRzPPqy7Yf0uAQnucNq5llgOWEbXdXCVg2jPyD94xtofZMvk/cxZBYGLevoi5ZGvvCAKSowPzATOi8ZA+s1FUD8=
 node_js:
 - '8'
 - '10'
@@ -11,8 +10,6 @@ node_js:
 before_install: yarn global add greenkeeper-lockfile@1
 stages:
 - test
-- name: prepare release
-  if: "(branch = master) AND (commit_message =~ /^:construction_worker: bump( (major|minor|patch))?$/)"
 - name: deploy
   if: tag =~ ^v
 before_script:
@@ -40,6 +37,3 @@ jobs:
       on:
         tags: true
         repo: BastienAr/stream-mock
-  - stage: prepare release
-    node_js: '10'
-    script: resources/scripts/prepare-release.sh
