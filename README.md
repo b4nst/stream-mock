@@ -36,7 +36,9 @@ npm i stream-mock
 
 ### Basic usage
 
-You are building an awesome brand new [Transform stream](https://nodejs.org/api/stream.html#stream_duplex_and_transform_streams) that rounds all your values.
+You are building an awesome brand new 
+[Transform stream](https://nodejs.org/api/stream.html#stream_duplex_and_transform_streams)
+that rounds all your values.
 
 ```javascript
 import { Transform } from 'stream';
