@@ -1,13 +1,13 @@
 /**
  * @module readable
  */
-import { Readable, ReadableOptions } from 'stream';
+import {Readable, ReadableOptions} from 'stream'
 
-import { WARNINGS } from '../constant';
-import { any2Buffer } from '../helpers/converters/any2Buffer';
-import warnOnce from '../helpers/warnOnce';
+import {WARNINGS} from '../constant'
+import {any2Buffer} from '../helpers/converters/any2Buffer'
+import warnOnce from '../helpers/warnOnce'
 
-import IReadableMock from './IReadableMock';
+import IReadableMock from './IReadableMock'
 
 /**
  * ReadableMock take it's input from an iterable instance and emit data for each value.
@@ -17,7 +17,7 @@ export default class ReadableMock extends Readable implements IReadableMock {
   public it: IterableIterator<any>;
   public objectMode: boolean;
   public readableObjectMode: boolean;
-  public encoding: string;
+  public encoding: BufferEncoding;
 
   /**
    *
@@ -32,7 +32,9 @@ export default class ReadableMock extends Readable implements IReadableMock {
     super(options);
     this.objectMode = options.objectMode;
     this.readableObjectMode = options.objectMode;
-    this.encoding = options.encoding ? options.encoding : 'utf8';
+    this.encoding = options.encoding
+      ? options.encoding as BufferEncoding
+      : 'utf8';
     this.it = source[Symbol.iterator]();
   }
 

@@ -1,11 +1,11 @@
 /**
  * @module duplex
  */
-import { Duplex, DuplexOptions } from 'stream';
+import {Duplex, DuplexOptions} from 'stream'
 
-import applyMixins from '../helpers/applyMixins';
-import { ReadableMock } from '../readable';
-import { WritableMock } from '../writable';
+import applyMixins from '../helpers/applyMixins'
+import {ReadableMock} from '../readable'
+import {WritableMock} from '../writable'
 
 /**
  * DuplexMock extends both [[WritableMock]] and [[ReadableMock]].
@@ -40,7 +40,7 @@ class DuplexMock extends Duplex implements WritableMock, ReadableMock {
   public writableObjectMode: boolean;
   public data: any[];
   public flatData: any[] | Buffer;
-  public encoding: string;
+  public encoding: BufferEncoding;
 
   /**
    * @param source Source data for reader. If null will be linked to writer output

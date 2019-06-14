@@ -3,5 +3,5 @@
  */
 export interface IChunk {
   chunk: Buffer | string;
-  encoding: string;
+  encoding: BufferEncoding;
 }

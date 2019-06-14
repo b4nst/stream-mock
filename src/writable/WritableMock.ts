@@ -1,14 +1,14 @@
 /**
  * @module writable
  */
-import { Writable, WritableOptions } from 'stream';
+import {Writable, WritableOptions} from 'stream'
 
-import { WARNINGS } from '../constant';
-import { chunk2Buffer } from '../helpers';
-import warnOnce from '../helpers/warnOnce';
-import { IChunk } from '../types';
+import {WARNINGS} from '../constant'
+import {chunk2Buffer} from '../helpers'
+import warnOnce from '../helpers/warnOnce'
+import {IChunk} from '../types'
 
-import IWritableMock from './IWritableMock';
+import IWritableMock from './IWritableMock'
 
 /**
  * WritableMock write its data ton an internal, public accessible buffer.
@@ -41,7 +41,7 @@ export default class WritableMock extends Writable implements IWritableMock {
   // tslint:disable-next-line:function-name Not responsible of this function name
   public _write(
     chunk: any,
-    encoding: string,
+    encoding: BufferEncoding,
     callback: (error?: Error | null) => void
   ) {
     this.data.push(

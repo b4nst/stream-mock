@@ -1,11 +1,11 @@
 /**
  * @module readable
  */
-import { Readable, ReadableOptions } from 'stream';
+import {Readable, ReadableOptions} from 'stream'
 
-import { any2Buffer } from '../helpers/converters/any2Buffer';
+import {any2Buffer} from '../helpers/converters/any2Buffer'
 
-import IReadableMock from './IReadableMock';
+import IReadableMock from './IReadableMock'
 
 /**
  * BufferReadableMock is a readable stream working in normal (buffer) mode.
@@ -21,7 +21,7 @@ import IReadableMock from './IReadableMock';
 export default class BufferReadableMock extends Readable
   implements IReadableMock {
   public it: IterableIterator<any>;
-  private encoding: string;
+  private encoding: BufferEncoding;
 
   /**
    *
@@ -34,7 +34,9 @@ export default class BufferReadableMock extends Readable
   ) {
     options.objectMode = false;
     super(options);
-    this.encoding = options.encoding ? options.encoding : 'utf8';
+    this.encoding = options.encoding
+      ? (options.encoding as BufferEncoding)
+      : 'utf8';
     this.it = source[Symbol.iterator]();
   }
 
