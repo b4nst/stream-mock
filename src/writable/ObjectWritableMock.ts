@@ -1,11 +1,11 @@
 /**
  * @module writable
  */
-import { Writable, WritableOptions } from 'stream';
+import {Writable, WritableOptions} from 'stream'
 
-import { IChunk } from '../types';
+import {IChunk} from '../types'
 
-import IWritableMock from './IWritableMock';
+import IWritableMock from './IWritableMock'
 
 /**
  * ObjectWritableMock is a readable stream working in object mode.
@@ -48,7 +48,7 @@ export default class ObjectWritableMock extends Writable
   // tslint:disable-next-line:function-name Not responsible of this function name
   public _write(
     chunk: any,
-    _encoding: string,
+    _encoding: BufferEncoding,
     callback: (error?: Error | null) => void
   ) {
     this.data.push(chunk);

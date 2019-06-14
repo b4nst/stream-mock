@@ -1,11 +1,11 @@
 /**
  * @module writable
  */
-import { Writable, WritableOptions } from 'stream';
+import {Writable, WritableOptions} from 'stream'
 
-import { chunk2Buffer } from '../helpers';
+import {chunk2Buffer} from '../helpers'
 
-import IWritableMock from './IWritableMock';
+import IWritableMock from './IWritableMock'
 
 /**
  * BufferWritableMock is a writable stream working in normal (buffer) mode.
@@ -50,7 +50,7 @@ export default class BufferWritableMock extends Writable
   // tslint:disable-next-line:function-name Not responsible of this function name
   public _write(
     chunk: Buffer | string,
-    encoding: string,
+    encoding: BufferEncoding,
     callback: (error?: Error | null) => void
   ) {
     this.data.push(chunk2Buffer({ chunk, encoding }));
@@ -59,7 +59,7 @@ export default class BufferWritableMock extends Writable
 
   // tslint:disable-next-line:function-name Not responsible of this function name
   public _writev(
-    chunks: { chunk: Buffer | string; encoding: string }[],
+    chunks: { chunk: Buffer | string; encoding: BufferEncoding }[],
     callback: (error?: Error | null) => void
   ) {
     this.data = this.data.concat(chunks.map(chunk2Buffer));
