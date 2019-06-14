@@ -84,26 +84,6 @@ describe('Test me if you can', (done) => {
 
 Full API doc is hosted [here](https://bastienar.github.io/stream-mock/)
 
-## Contributing
-
-stream-mock is currently on early stage.
-I'm happily receiving new PR or discussing about new features,
-improvement or bug report.
-If you need something that this module is lacking
-(related to Nodejs stream mock obviously), do not hesitate to raise an issue.
-
-### Developper side
-
-To run test :
-
-```shell
-yarn run test
-```
-
-Linter is run on commit hook base.
-
-![Thats all folks](https://media.giphy.com/media/lD76yTC5zxZPG/giphy.gif)
-
 ----------------
 
 ## License
