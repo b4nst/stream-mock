@@ -5,6 +5,7 @@
       "variable-name": [true, "ban-keywords", "check-format", "allow-leading-underscore", "require-const-for-all-caps"],
       "curly": [true, "ignore-same-line"],
       "array-type": [true, "array"],
-      "prefer-type-cast": false
+      "prefer-type-cast": false,
+      "mocha-no-side-effect-code": false
   }
 }
