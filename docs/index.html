@@ -66,6 +66,7 @@
 			<div class="tsd-panel tsd-typography">
 				<h1 id="stream-mock">Stream Mock</h1>
 				<p><a href="https://travis-ci.org/BastienAr/stream-mock"><img src="https://travis-ci.org/BastienAr/stream-mock.svg?branch=master" alt="Build Status"></a>
+					<a href="https://wdp9fww0r9.execute-api.us-west-2.amazonaws.com/production/results/b4nst/stream-mock"><img src="https://wdp9fww0r9.execute-api.us-west-2.amazonaws.com/production/badge/b4nst/stream-mock" alt="Actions Status"></a>
 					<a href="https://codeclimate.com/github/BastienAr/stream-mock/test_coverage"><img src="https://api.codeclimate.com/v1/badges/a2f2d69c643398bef333/test_coverage" alt="Test Coverage"></a>
 					<a href="https://codeclimate.com/github/BastienAr/stream-mock/maintainability"><img src="https://api.codeclimate.com/v1/badges/a2f2d69c643398bef333/maintainability" alt="Maintainability"></a>
 				<a href="https://greenkeeper.io/"><img src="https://badges.greenkeeper.io/BastienAr/stream-mock.svg" alt="Greenkeeper badge"></a></p>
@@ -90,7 +91,9 @@
 				<p>Or, if you are more a <code>npm</code> person</p>
 				<pre><code class="language-shell">npm i stream-mock</code></pre>
 				<h3 id="basic-usage">Basic usage</h3>
-				<p>You are building an awesome brand new <a href="https://nodejs.org/api/stream.html#stream_duplex_and_transform_streams">Transform stream</a> that rounds all your values.</p>
+				<p>You are building an awesome brand new
+					<a href="https://nodejs.org/api/stream.html#stream_duplex_and_transform_streams">Transform stream</a>
+				that rounds all your values.</p>
 				<pre><code class="language-javascript"><span class="hljs-keyword">import</span> { Transform } <span class="hljs-keyword">from</span> <span class="hljs-string">'stream'</span>;
 
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Rounder</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Transform</span> </span>{
@@ -125,17 +128,6 @@ describe(<span class="hljs-string">'Test me if you can'</span>, (done) =&gt; {
 				<p><img src="https://media.giphy.com/media/12NUbkX6p4xOO4/giphy.gif" alt="magic"></p>
 				<h3 id="api-documentation">API documentation</h3>
 				<p>Full API doc is hosted <a href="https://bastienar.github.io/stream-mock/">here</a></p>
-				<h2 id="contributing">Contributing</h2>
-				<p>stream-mock is currently on early stage.
-					I&#39;m happily receiving new PR or discussing about new features,
-					improvement or bug report.
-					If you need something that this module is lacking
-				(related to Nodejs stream mock obviously), do not hesitate to raise an issue.</p>
-				<h3 id="developper-side">Developper side</h3>
-				<p>To run test :</p>
-				<pre><code class="language-shell">yarn run test</code></pre>
-				<p>Linter is run on commit hook base.</p>
-				<p><img src="https://media.giphy.com/media/lD76yTC5zxZPG/giphy.gif" alt="Thats all folks"></p>
 				<hr>
 				<h2 id="license">License</h2>
 				<p>MIT</p>
@@ -146,6 +138,9 @@ describe(<span class="hljs-string">'Test me if you can'</span>, (done) =&gt; {
 				<ul>
 					<li class="globals  ">
 						<a href="globals.html"><em>Globals</em></a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_test_.html">"test"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="modules/constant.html">constant</a>

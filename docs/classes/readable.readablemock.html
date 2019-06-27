@@ -101,12 +101,6 @@
 					<li><a href="../interfaces/readable.ireadablemock.html" class="tsd-signature-type">IReadableMock</a></li>
 				</ul>
 			</section>
-			<section class="tsd-panel">
-				<h3>Implemented by</h3>
-				<ul class="tsd-hierarchy">
-					<li><a href="duplex.duplexmock.html" class="tsd-signature-type">DuplexMock</a></li>
-				</ul>
-			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
@@ -120,13 +114,13 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="readable.readablemock.html#_readablestate" class="tsd-kind-icon">_readable<wbr>State</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="readable.readablemock.html#encoding" class="tsd-kind-icon">encoding</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="readable.readablemock.html#it" class="tsd-kind-icon">it</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="readable.readablemock.html#objectmode" class="tsd-kind-icon">object<wbr>Mode</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="readable.readablemock.html#readable" class="tsd-kind-icon">readable</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="readable.readablemock.html#readablehighwatermark" class="tsd-kind-icon">readable<wbr>High<wbr>Water<wbr>Mark</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="readable.readablemock.html#readablelength" class="tsd-kind-icon">readable<wbr>Length</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="readable.readablemock.html#readableobjectmode" class="tsd-kind-icon">readable<wbr>Object<wbr>Mode</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="readable.readablemock.html#defaultmaxlisteners" class="tsd-kind-icon">default<wbr>Max<wbr>Listeners</a></li>
 							</ul>
 						</section>
@@ -181,7 +175,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides Readable.__constructor</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/BastienAr/stream-mock/blob/8ab49a5/src/readable/ReadableMock.ts#L20">readable/ReadableMock.ts:20</a></li>
+									<li>Defined in <a href="https://github.com/BastienAr/stream-mock/blob/27898bc/src/readable/ReadableMock.ts#L21">readable/ReadableMock.ts:21</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -212,13 +206,23 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_readablestate" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _readable<wbr>State</h3>
+					<div class="tsd-signature tsd-kind-icon">_readable<wbr>State<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/BastienAr/stream-mock/blob/27898bc/src/readable/ReadableMock.ts#L21">readable/ReadableMock.ts:21</a></li>
+						</ul>
+					</aside>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="encoding" class="tsd-anchor"></a>
 					<h3>encoding</h3>
-					<div class="tsd-signature tsd-kind-icon">encoding<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<div class="tsd-signature tsd-kind-icon">encoding<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">BufferEncoding</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/BastienAr/stream-mock/blob/8ab49a5/src/readable/ReadableMock.ts#L20">readable/ReadableMock.ts:20</a></li>
+							<li>Defined in <a href="https://github.com/BastienAr/stream-mock/blob/27898bc/src/readable/ReadableMock.ts#L19">readable/ReadableMock.ts:19</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -229,7 +233,7 @@
 					<aside class="tsd-sources">
 						<p>Implementation of <a href="../interfaces/readable.ireadablemock.html">IReadableMock</a>.<a href="../interfaces/readable.ireadablemock.html#it">it</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/BastienAr/stream-mock/blob/8ab49a5/src/readable/ReadableMock.ts#L17">readable/ReadableMock.ts:17</a></li>
+							<li>Defined in <a href="https://github.com/BastienAr/stream-mock/blob/27898bc/src/readable/ReadableMock.ts#L17">readable/ReadableMock.ts:17</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -239,7 +243,7 @@
 					<div class="tsd-signature tsd-kind-icon">object<wbr>Mode<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/BastienAr/stream-mock/blob/8ab49a5/src/readable/ReadableMock.ts#L18">readable/ReadableMock.ts:18</a></li>
+							<li>Defined in <a href="https://github.com/BastienAr/stream-mock/blob/27898bc/src/readable/ReadableMock.ts#L18">readable/ReadableMock.ts:18</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -276,16 +280,6 @@
 						<p>Inherited from Readable.readableLength</p>
 						<ul>
 							<li>Defined in node_modules/@types/node/stream.d.ts:23</li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="readableobjectmode" class="tsd-anchor"></a>
-					<h3>readable<wbr>Object<wbr>Mode</h3>
-					<div class="tsd-signature tsd-kind-icon">readable<wbr>Object<wbr>Mode<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/BastienAr/stream-mock/blob/8ab49a5/src/readable/ReadableMock.ts#L19">readable/ReadableMock.ts:19</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -380,7 +374,7 @@
 								<p>Implementation of <a href="../interfaces/readable.ireadablemock.html">IReadableMock</a>.<a href="../interfaces/readable.ireadablemock.html#_read">_read</a></p>
 								<p>Overrides Readable._read</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/BastienAr/stream-mock/blob/8ab49a5/src/readable/ReadableMock.ts#L40">readable/ReadableMock.ts:40</a></li>
+									<li>Defined in <a href="https://github.com/BastienAr/stream-mock/blob/27898bc/src/readable/ReadableMock.ts#L42">readable/ReadableMock.ts:42</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2372,6 +2366,9 @@
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class=" tsd-kind-external-module">
+						<a href="../modules/_test_.html">"test"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
 						<a href="../modules/constant.html">constant</a>
 					</li>
 					<li class=" tsd-kind-external-module">
@@ -2407,6 +2404,9 @@
 							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
 								<a href="readable.readablemock.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="readable.readablemock.html#_readablestate" class="tsd-kind-icon">_readable<wbr>State</a>
+							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="readable.readablemock.html#encoding" class="tsd-kind-icon">encoding</a>
 							</li>
@@ -2424,9 +2424,6 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="readable.readablemock.html#readablelength" class="tsd-kind-icon">readable<wbr>Length</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="readable.readablemock.html#readableobjectmode" class="tsd-kind-icon">readable<wbr>Object<wbr>Mode</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
 								<a href="readable.readablemock.html#defaultmaxlisteners" class="tsd-kind-icon">default<wbr>Max<wbr>Listeners</a>

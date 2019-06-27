@@ -77,7 +77,7 @@
 					</div>
 					<dl class="tsd-comment-tags">
 						<dt>deprecated</dt>
-						<dd><p>Please use <a href="readable.bufferreadablemock.html">BufferReadableMock</a> or <a href="readable.objectreadablemock.html">ObjectReadableMock</a> to get a better type accuracy.</p>
+						<dd><p>Please use <a href="writable.bufferwritablemock.html">BufferWritableMock</a> or <a href="writable.objectwritablemock.html">ObjectWritableMock</a> to get a better type accuracy.</p>
 						</dd>
 					</dl>
 				</div>
@@ -102,12 +102,6 @@
 					<li><a href="../interfaces/writable.iwritablemock.html" class="tsd-signature-type">IWritableMock</a></li>
 				</ul>
 			</section>
-			<section class="tsd-panel">
-				<h3>Implemented by</h3>
-				<ul class="tsd-hierarchy">
-					<li><a href="duplex.duplexmock.html" class="tsd-signature-type">DuplexMock</a></li>
-				</ul>
-			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
@@ -121,13 +115,13 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="writable.writablemock.html#_writablestate" class="tsd-kind-icon">_writable<wbr>State</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="writable.writablemock.html#data" class="tsd-kind-icon">data</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="writable.writablemock.html#flatdata" class="tsd-kind-icon">flat<wbr>Data</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="writable.writablemock.html#objectmode" class="tsd-kind-icon">object<wbr>Mode</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="writable.writablemock.html#writable" class="tsd-kind-icon">writable</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="writable.writablemock.html#writablehighwatermark" class="tsd-kind-icon">writable<wbr>High<wbr>Water<wbr>Mark</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="writable.writablemock.html#writablelength" class="tsd-kind-icon">writable<wbr>Length</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="writable.writablemock.html#writableobjectmode" class="tsd-kind-icon">writable<wbr>Object<wbr>Mode</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="writable.writablemock.html#defaultmaxlisteners" class="tsd-kind-icon">default<wbr>Max<wbr>Listeners</a></li>
 							</ul>
 						</section>
@@ -179,7 +173,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides Writable.__constructor</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/BastienAr/stream-mock/blob/8ab49a5/src/writable/WritableMock.ts#L28">writable/WritableMock.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/BastienAr/stream-mock/blob/27898bc/src/writable/WritableMock.ts#L29">writable/WritableMock.ts:29</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -202,6 +196,16 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_writablestate" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _writable<wbr>State</h3>
+					<div class="tsd-signature tsd-kind-icon">_writable<wbr>State<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/BastienAr/stream-mock/blob/27898bc/src/writable/WritableMock.ts#L29">writable/WritableMock.ts:29</a></li>
+						</ul>
+					</aside>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="data" class="tsd-anchor"></a>
 					<h3>data</h3>
@@ -209,7 +213,7 @@
 					<aside class="tsd-sources">
 						<p>Implementation of <a href="../interfaces/writable.iwritablemock.html">IWritableMock</a>.<a href="../interfaces/writable.iwritablemock.html#data">data</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/BastienAr/stream-mock/blob/8ab49a5/src/writable/WritableMock.ts#L24">writable/WritableMock.ts:24</a></li>
+							<li>Defined in <a href="https://github.com/BastienAr/stream-mock/blob/27898bc/src/writable/WritableMock.ts#L23">writable/WritableMock.ts:23</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -225,7 +229,7 @@
 					<aside class="tsd-sources">
 						<p>Implementation of <a href="../interfaces/writable.iwritablemock.html">IWritableMock</a>.<a href="../interfaces/writable.iwritablemock.html#flatdata">flatData</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/BastienAr/stream-mock/blob/8ab49a5/src/writable/WritableMock.ts#L28">writable/WritableMock.ts:28</a></li>
+							<li>Defined in <a href="https://github.com/BastienAr/stream-mock/blob/27898bc/src/writable/WritableMock.ts#L27">writable/WritableMock.ts:27</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -240,7 +244,7 @@
 					<div class="tsd-signature tsd-kind-icon">object<wbr>Mode<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/BastienAr/stream-mock/blob/8ab49a5/src/writable/WritableMock.ts#L19">writable/WritableMock.ts:19</a></li>
+							<li>Defined in <a href="https://github.com/BastienAr/stream-mock/blob/27898bc/src/writable/WritableMock.ts#L19">writable/WritableMock.ts:19</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -277,16 +281,6 @@
 						<p>Inherited from Writable.writableLength</p>
 						<ul>
 							<li>Defined in node_modules/@types/node/stream.d.ts:115</li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="writableobjectmode" class="tsd-anchor"></a>
-					<h3>writable<wbr>Object<wbr>Mode</h3>
-					<div class="tsd-signature tsd-kind-icon">writable<wbr>Object<wbr>Mode<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/BastienAr/stream-mock/blob/8ab49a5/src/writable/WritableMock.ts#L20">writable/WritableMock.ts:20</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -361,7 +355,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides Writable._final</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/BastienAr/stream-mock/blob/8ab49a5/src/writable/WritableMock.ts#L65">writable/WritableMock.ts:65</a></li>
+									<li>Defined in <a href="https://github.com/BastienAr/stream-mock/blob/27898bc/src/writable/WritableMock.ts#L61">writable/WritableMock.ts:61</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -396,14 +390,14 @@
 					<a name="_write" class="tsd-anchor"></a>
 					<h3>_write</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">_write<span class="tsd-signature-symbol">(</span>chunk<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, encoding<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, callback<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">_write<span class="tsd-signature-symbol">(</span>chunk<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, encoding<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">BufferEncoding</span>, callback<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Overrides Writable._write</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/BastienAr/stream-mock/blob/8ab49a5/src/writable/WritableMock.ts#L42">writable/WritableMock.ts:42</a></li>
+									<li>Defined in <a href="https://github.com/BastienAr/stream-mock/blob/27898bc/src/writable/WritableMock.ts#L41">writable/WritableMock.ts:41</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -412,7 +406,7 @@
 									<h5>chunk: <span class="tsd-signature-type">any</span></h5>
 								</li>
 								<li>
-									<h5>encoding: <span class="tsd-signature-type">string</span></h5>
+									<h5>encoding: <span class="tsd-signature-type">BufferEncoding</span></h5>
 								</li>
 								<li>
 									<h5>callback: <span class="tsd-signature-type">function</span></h5>
@@ -451,7 +445,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides Writable._writev</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/BastienAr/stream-mock/blob/8ab49a5/src/writable/WritableMock.ts#L56">writable/WritableMock.ts:56</a></li>
+									<li>Defined in <a href="https://github.com/BastienAr/stream-mock/blob/27898bc/src/writable/WritableMock.ts#L53">writable/WritableMock.ts:53</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2753,6 +2747,9 @@
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class=" tsd-kind-external-module">
+						<a href="../modules/_test_.html">"test"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
 						<a href="../modules/constant.html">constant</a>
 					</li>
 					<li class=" tsd-kind-external-module">
@@ -2788,6 +2785,9 @@
 							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
 								<a href="writable.writablemock.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="writable.writablemock.html#_writablestate" class="tsd-kind-icon">_writable<wbr>State</a>
+							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="writable.writablemock.html#data" class="tsd-kind-icon">data</a>
 							</li>
@@ -2805,9 +2805,6 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="writable.writablemock.html#writablelength" class="tsd-kind-icon">writable<wbr>Length</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="writable.writablemock.html#writableobjectmode" class="tsd-kind-icon">writable<wbr>Object<wbr>Mode</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
 								<a href="writable.writablemock.html#defaultmaxlisteners" class="tsd-kind-icon">default<wbr>Max<wbr>Listeners</a>

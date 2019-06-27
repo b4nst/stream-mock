@@ -117,8 +117,8 @@ lduplex.write(<span class="hljs-number">7</span>, <span class="hljs-function"><s
 				<ul class="tsd-hierarchy">
 					<li><span class="tsd-signature-type">ReadableStream</span></li>
 					<li><span class="tsd-signature-type">Writable</span></li>
-					<li><a href="writable.writablemock.html" class="tsd-signature-type">WritableMock</a></li>
-					<li><a href="readable.readablemock.html" class="tsd-signature-type">ReadableMock</a></li>
+					<li><a href="../interfaces/writable.iwritablemock.html" class="tsd-signature-type">IWritableMock</a></li>
+					<li><a href="../interfaces/readable.ireadablemock.html" class="tsd-signature-type">IReadableMock</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -134,6 +134,8 @@ lduplex.write(<span class="hljs-number">7</span>, <span class="hljs-function"><s
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="duplex.duplexmock.html#_readablestate" class="tsd-kind-icon">_readable<wbr>State</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="duplex.duplexmock.html#_writablestate" class="tsd-kind-icon">_writable<wbr>State</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="duplex.duplexmock.html#data" class="tsd-kind-icon">data</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="duplex.duplexmock.html#encoding" class="tsd-kind-icon">encoding</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="duplex.duplexmock.html#flatdata" class="tsd-kind-icon">flat<wbr>Data</a></li>
@@ -209,7 +211,7 @@ lduplex.write(<span class="hljs-number">7</span>, <span class="hljs-function"><s
 							<aside class="tsd-sources">
 								<p>Overrides Duplex.__constructor</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/BastienAr/stream-mock/blob/8ab49a5/src/duplex/DuplexMock.ts#L43">duplex/DuplexMock.ts:43</a></li>
+									<li>Defined in <a href="https://github.com/BastienAr/stream-mock/blob/27898bc/src/duplex/DuplexMock.ts#L46">duplex/DuplexMock.ts:46</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -240,23 +242,44 @@ lduplex.write(<span class="hljs-number">7</span>, <span class="hljs-function"><s
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_readablestate" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _readable<wbr>State</h3>
+					<div class="tsd-signature tsd-kind-icon">_readable<wbr>State<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/BastienAr/stream-mock/blob/27898bc/src/duplex/DuplexMock.ts#L45">duplex/DuplexMock.ts:45</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_writablestate" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _writable<wbr>State</h3>
+					<div class="tsd-signature tsd-kind-icon">_writable<wbr>State<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/BastienAr/stream-mock/blob/27898bc/src/duplex/DuplexMock.ts#L46">duplex/DuplexMock.ts:46</a></li>
+						</ul>
+					</aside>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="data" class="tsd-anchor"></a>
 					<h3>data</h3>
 					<div class="tsd-signature tsd-kind-icon">data<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
+						<p>Implementation of <a href="../interfaces/writable.iwritablemock.html">IWritableMock</a>.<a href="../interfaces/writable.iwritablemock.html#data">data</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/BastienAr/stream-mock/blob/8ab49a5/src/duplex/DuplexMock.ts#L41">duplex/DuplexMock.ts:41</a></li>
+							<li>Defined in <a href="https://github.com/BastienAr/stream-mock/blob/27898bc/src/duplex/DuplexMock.ts#L41">duplex/DuplexMock.ts:41</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="encoding" class="tsd-anchor"></a>
 					<h3>encoding</h3>
-					<div class="tsd-signature tsd-kind-icon">encoding<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<div class="tsd-signature tsd-kind-icon">encoding<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">BufferEncoding</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/BastienAr/stream-mock/blob/8ab49a5/src/duplex/DuplexMock.ts#L43">duplex/DuplexMock.ts:43</a></li>
+							<li>Defined in <a href="https://github.com/BastienAr/stream-mock/blob/27898bc/src/duplex/DuplexMock.ts#L43">duplex/DuplexMock.ts:43</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -265,8 +288,9 @@ lduplex.write(<span class="hljs-number">7</span>, <span class="hljs-function"><s
 					<h3>flat<wbr>Data</h3>
 					<div class="tsd-signature tsd-kind-icon">flat<wbr>Data<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Buffer</span></div>
 					<aside class="tsd-sources">
+						<p>Implementation of <a href="../interfaces/writable.iwritablemock.html">IWritableMock</a>.<a href="../interfaces/writable.iwritablemock.html#flatdata">flatData</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/BastienAr/stream-mock/blob/8ab49a5/src/duplex/DuplexMock.ts#L42">duplex/DuplexMock.ts:42</a></li>
+							<li>Defined in <a href="https://github.com/BastienAr/stream-mock/blob/27898bc/src/duplex/DuplexMock.ts#L42">duplex/DuplexMock.ts:42</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -275,8 +299,9 @@ lduplex.write(<span class="hljs-number">7</span>, <span class="hljs-function"><s
 					<h3>it</h3>
 					<div class="tsd-signature tsd-kind-icon">it<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">IterableIterator</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
+						<p>Implementation of <a href="../interfaces/readable.ireadablemock.html">IReadableMock</a>.<a href="../interfaces/readable.ireadablemock.html#it">it</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/BastienAr/stream-mock/blob/8ab49a5/src/duplex/DuplexMock.ts#L37">duplex/DuplexMock.ts:37</a></li>
+							<li>Defined in <a href="https://github.com/BastienAr/stream-mock/blob/27898bc/src/duplex/DuplexMock.ts#L37">duplex/DuplexMock.ts:37</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -286,7 +311,7 @@ lduplex.write(<span class="hljs-number">7</span>, <span class="hljs-function"><s
 					<div class="tsd-signature tsd-kind-icon">object<wbr>Mode<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/BastienAr/stream-mock/blob/8ab49a5/src/duplex/DuplexMock.ts#L38">duplex/DuplexMock.ts:38</a></li>
+							<li>Defined in <a href="https://github.com/BastienAr/stream-mock/blob/27898bc/src/duplex/DuplexMock.ts#L38">duplex/DuplexMock.ts:38</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -295,6 +320,7 @@ lduplex.write(<span class="hljs-number">7</span>, <span class="hljs-function"><s
 					<h3>readable</h3>
 					<div class="tsd-signature tsd-kind-icon">readable<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
+						<p>Implementation of <a href="../interfaces/readable.ireadablemock.html">IReadableMock</a>.<a href="../interfaces/readable.ireadablemock.html#readable">readable</a></p>
 						<p>Inherited from Readable.readable</p>
 						<ul>
 							<li>Defined in node_modules/@types/node/stream.d.ts:21</li>
@@ -306,6 +332,7 @@ lduplex.write(<span class="hljs-number">7</span>, <span class="hljs-function"><s
 					<h3>readable<wbr>High<wbr>Water<wbr>Mark</h3>
 					<div class="tsd-signature tsd-kind-icon">readable<wbr>High<wbr>Water<wbr>Mark<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
+						<p>Implementation of <a href="../interfaces/readable.ireadablemock.html">IReadableMock</a>.<a href="../interfaces/readable.ireadablemock.html#readablehighwatermark">readableHighWaterMark</a></p>
 						<p>Inherited from Readable.readableHighWaterMark</p>
 						<ul>
 							<li>Defined in node_modules/@types/node/stream.d.ts:22</li>
@@ -317,6 +344,7 @@ lduplex.write(<span class="hljs-number">7</span>, <span class="hljs-function"><s
 					<h3>readable<wbr>Length</h3>
 					<div class="tsd-signature tsd-kind-icon">readable<wbr>Length<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
+						<p>Implementation of <a href="../interfaces/readable.ireadablemock.html">IReadableMock</a>.<a href="../interfaces/readable.ireadablemock.html#readablelength">readableLength</a></p>
 						<p>Inherited from Readable.readableLength</p>
 						<ul>
 							<li>Defined in node_modules/@types/node/stream.d.ts:23</li>
@@ -329,7 +357,7 @@ lduplex.write(<span class="hljs-number">7</span>, <span class="hljs-function"><s
 					<div class="tsd-signature tsd-kind-icon">readable<wbr>Object<wbr>Mode<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/BastienAr/stream-mock/blob/8ab49a5/src/duplex/DuplexMock.ts#L39">duplex/DuplexMock.ts:39</a></li>
+							<li>Defined in <a href="https://github.com/BastienAr/stream-mock/blob/27898bc/src/duplex/DuplexMock.ts#L39">duplex/DuplexMock.ts:39</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -338,6 +366,7 @@ lduplex.write(<span class="hljs-number">7</span>, <span class="hljs-function"><s
 					<h3>writable</h3>
 					<div class="tsd-signature tsd-kind-icon">writable<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
+						<p>Implementation of <a href="../interfaces/writable.iwritablemock.html">IWritableMock</a>.<a href="../interfaces/writable.iwritablemock.html#writable">writable</a></p>
 						<p>Inherited from Duplex.writable</p>
 						<ul>
 							<li>Defined in node_modules/@types/node/stream.d.ts:211</li>
@@ -349,6 +378,7 @@ lduplex.write(<span class="hljs-number">7</span>, <span class="hljs-function"><s
 					<h3>writable<wbr>High<wbr>Water<wbr>Mark</h3>
 					<div class="tsd-signature tsd-kind-icon">writable<wbr>High<wbr>Water<wbr>Mark<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
+						<p>Implementation of <a href="../interfaces/writable.iwritablemock.html">IWritableMock</a>.<a href="../interfaces/writable.iwritablemock.html#writablehighwatermark">writableHighWaterMark</a></p>
 						<p>Inherited from Duplex.writableHighWaterMark</p>
 						<ul>
 							<li>Defined in node_modules/@types/node/stream.d.ts:212</li>
@@ -360,6 +390,7 @@ lduplex.write(<span class="hljs-number">7</span>, <span class="hljs-function"><s
 					<h3>writable<wbr>Length</h3>
 					<div class="tsd-signature tsd-kind-icon">writable<wbr>Length<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
+						<p>Implementation of <a href="../interfaces/writable.iwritablemock.html">IWritableMock</a>.<a href="../interfaces/writable.iwritablemock.html#writablelength">writableLength</a></p>
 						<p>Inherited from Duplex.writableLength</p>
 						<ul>
 							<li>Defined in node_modules/@types/node/stream.d.ts:213</li>
@@ -372,7 +403,7 @@ lduplex.write(<span class="hljs-number">7</span>, <span class="hljs-function"><s
 					<div class="tsd-signature tsd-kind-icon">writable<wbr>Object<wbr>Mode<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/BastienAr/stream-mock/blob/8ab49a5/src/duplex/DuplexMock.ts#L40">duplex/DuplexMock.ts:40</a></li>
+							<li>Defined in <a href="https://github.com/BastienAr/stream-mock/blob/27898bc/src/duplex/DuplexMock.ts#L40">duplex/DuplexMock.ts:40</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -381,6 +412,7 @@ lduplex.write(<span class="hljs-number">7</span>, <span class="hljs-function"><s
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> default<wbr>Max<wbr>Listeners</h3>
 					<div class="tsd-signature tsd-kind-icon">default<wbr>Max<wbr>Listeners<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
+						<p>Implementation of <a href="../interfaces/readable.ireadablemock.html">IReadableMock</a>.<a href="../interfaces/readable.ireadablemock.html#defaultmaxlisteners">defaultMaxListeners</a></p>
 						<p>Inherited from EventEmitter.defaultMaxListeners</p>
 						<ul>
 							<li>Defined in node_modules/@types/node/events.d.ts:9</li>
@@ -399,6 +431,7 @@ lduplex.write(<span class="hljs-number">7</span>, <span class="hljs-function"><s
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/readable.ireadablemock.html">IReadableMock</a>.<a href="../interfaces/readable.ireadablemock.html#___asynciterator">__@asyncIterator</a></p>
 								<p>Inherited from Readable.[Symbol.asyncIterator]</p>
 								<ul>
 									<li>Defined in node_modules/@types/node/stream.d.ts:96</li>
@@ -505,6 +538,7 @@ lduplex.write(<span class="hljs-number">7</span>, <span class="hljs-function"><s
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/readable.ireadablemock.html">IReadableMock</a>.<a href="../interfaces/readable.ireadablemock.html#_read">_read</a></p>
 								<p>Inherited from Readable._read</p>
 								<ul>
 									<li>Defined in node_modules/@types/node/stream.d.ts:25</li>
@@ -853,6 +887,7 @@ lduplex.write(<span class="hljs-number">7</span>, <span class="hljs-function"><s
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/writable.iwritablemock.html">IWritableMock</a>.<a href="../interfaces/writable.iwritablemock.html#cork">cork</a></p>
 								<p>Inherited from Duplex.cork</p>
 								<ul>
 									<li>Defined in node_modules/@types/node/stream.d.ts:225</li>
@@ -871,6 +906,7 @@ lduplex.write(<span class="hljs-number">7</span>, <span class="hljs-function"><s
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/readable.ireadablemock.html">IReadableMock</a>.<a href="../interfaces/readable.ireadablemock.html#destroy">destroy</a></p>
 								<p>Inherited from Readable.destroy</p>
 								<ul>
 									<li>Defined in node_modules/@types/node/stream.d.ts:36</li>
@@ -900,6 +936,7 @@ lduplex.write(<span class="hljs-number">7</span>, <span class="hljs-function"><s
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/readable.ireadablemock.html">IReadableMock</a>.<a href="../interfaces/readable.ireadablemock.html#emit">emit</a></p>
 								<p>Inherited from Readable.emit</p>
 								<p>Overrides EventEmitter.emit</p>
 								<ul>
@@ -916,6 +953,7 @@ lduplex.write(<span class="hljs-number">7</span>, <span class="hljs-function"><s
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/readable.ireadablemock.html">IReadableMock</a>.<a href="../interfaces/readable.ireadablemock.html#emit">emit</a></p>
 								<p>Inherited from Readable.emit</p>
 								<p>Overrides EventEmitter.emit</p>
 								<ul>
@@ -935,6 +973,7 @@ lduplex.write(<span class="hljs-number">7</span>, <span class="hljs-function"><s
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/readable.ireadablemock.html">IReadableMock</a>.<a href="../interfaces/readable.ireadablemock.html#emit">emit</a></p>
 								<p>Inherited from Readable.emit</p>
 								<p>Overrides EventEmitter.emit</p>
 								<ul>
@@ -951,6 +990,7 @@ lduplex.write(<span class="hljs-number">7</span>, <span class="hljs-function"><s
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/readable.ireadablemock.html">IReadableMock</a>.<a href="../interfaces/readable.ireadablemock.html#emit">emit</a></p>
 								<p>Inherited from Readable.emit</p>
 								<p>Overrides EventEmitter.emit</p>
 								<ul>
@@ -967,6 +1007,7 @@ lduplex.write(<span class="hljs-number">7</span>, <span class="hljs-function"><s
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/readable.ireadablemock.html">IReadableMock</a>.<a href="../interfaces/readable.ireadablemock.html#emit">emit</a></p>
 								<p>Inherited from Readable.emit</p>
 								<p>Overrides EventEmitter.emit</p>
 								<ul>
@@ -986,6 +1027,7 @@ lduplex.write(<span class="hljs-number">7</span>, <span class="hljs-function"><s
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/readable.ireadablemock.html">IReadableMock</a>.<a href="../interfaces/readable.ireadablemock.html#emit">emit</a></p>
 								<p>Inherited from Readable.emit</p>
 								<p>Overrides EventEmitter.emit</p>
 								<ul>
@@ -1115,6 +1157,7 @@ lduplex.write(<span class="hljs-number">7</span>, <span class="hljs-function"><s
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/readable.ireadablemock.html">IReadableMock</a>.<a href="../interfaces/readable.ireadablemock.html#eventnames">eventNames</a></p>
 								<p>Inherited from EventEmitter.eventNames</p>
 								<p>Overrides EventEmitter.eventNames</p>
 								<ul>
@@ -1134,6 +1177,7 @@ lduplex.write(<span class="hljs-number">7</span>, <span class="hljs-function"><s
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/readable.ireadablemock.html">IReadableMock</a>.<a href="../interfaces/readable.ireadablemock.html#getmaxlisteners">getMaxListeners</a></p>
 								<p>Inherited from EventEmitter.getMaxListeners</p>
 								<p>Overrides EventEmitter.getMaxListeners</p>
 								<ul>
@@ -1153,6 +1197,7 @@ lduplex.write(<span class="hljs-number">7</span>, <span class="hljs-function"><s
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/readable.ireadablemock.html">IReadableMock</a>.<a href="../interfaces/readable.ireadablemock.html#ispaused">isPaused</a></p>
 								<p>Inherited from Readable.isPaused</p>
 								<ul>
 									<li>Defined in node_modules/@types/node/stream.d.ts:30</li>
@@ -1171,6 +1216,7 @@ lduplex.write(<span class="hljs-number">7</span>, <span class="hljs-function"><s
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/readable.ireadablemock.html">IReadableMock</a>.<a href="../interfaces/readable.ireadablemock.html#listenercount">listenerCount</a></p>
 								<p>Inherited from EventEmitter.listenerCount</p>
 								<p>Overrides EventEmitter.listenerCount</p>
 								<ul>
@@ -1196,6 +1242,7 @@ lduplex.write(<span class="hljs-number">7</span>, <span class="hljs-function"><s
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/readable.ireadablemock.html">IReadableMock</a>.<a href="../interfaces/readable.ireadablemock.html#listeners">listeners</a></p>
 								<p>Inherited from EventEmitter.listeners</p>
 								<p>Overrides EventEmitter.listeners</p>
 								<ul>
@@ -1703,6 +1750,7 @@ lduplex.write(<span class="hljs-number">7</span>, <span class="hljs-function"><s
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/readable.ireadablemock.html">IReadableMock</a>.<a href="../interfaces/readable.ireadablemock.html#pause">pause</a></p>
 								<p>Inherited from Readable.pause</p>
 								<ul>
 									<li>Defined in node_modules/@types/node/stream.d.ts:28</li>
@@ -2195,6 +2243,7 @@ lduplex.write(<span class="hljs-number">7</span>, <span class="hljs-function"><s
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/readable.ireadablemock.html">IReadableMock</a>.<a href="../interfaces/readable.ireadablemock.html#push">push</a></p>
 								<p>Inherited from Readable.push</p>
 								<ul>
 									<li>Defined in node_modules/@types/node/stream.d.ts:34</li>
@@ -2222,6 +2271,7 @@ lduplex.write(<span class="hljs-number">7</span>, <span class="hljs-function"><s
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/readable.ireadablemock.html">IReadableMock</a>.<a href="../interfaces/readable.ireadablemock.html#rawlisteners">rawListeners</a></p>
 								<p>Inherited from EventEmitter.rawListeners</p>
 								<p>Overrides EventEmitter.rawListeners</p>
 								<ul>
@@ -2247,6 +2297,7 @@ lduplex.write(<span class="hljs-number">7</span>, <span class="hljs-function"><s
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/readable.ireadablemock.html">IReadableMock</a>.<a href="../interfaces/readable.ireadablemock.html#read">read</a></p>
 								<p>Inherited from Readable.read</p>
 								<ul>
 									<li>Defined in node_modules/@types/node/stream.d.ts:26</li>
@@ -2271,6 +2322,7 @@ lduplex.write(<span class="hljs-number">7</span>, <span class="hljs-function"><s
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/readable.ireadablemock.html">IReadableMock</a>.<a href="../interfaces/readable.ireadablemock.html#removealllisteners">removeAllListeners</a></p>
 								<p>Inherited from EventEmitter.removeAllListeners</p>
 								<p>Overrides EventEmitter.removeAllListeners</p>
 								<ul>
@@ -2514,6 +2566,7 @@ lduplex.write(<span class="hljs-number">7</span>, <span class="hljs-function"><s
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/readable.ireadablemock.html">IReadableMock</a>.<a href="../interfaces/readable.ireadablemock.html#resume">resume</a></p>
 								<p>Inherited from Readable.resume</p>
 								<ul>
 									<li>Defined in node_modules/@types/node/stream.d.ts:29</li>
@@ -2532,6 +2585,7 @@ lduplex.write(<span class="hljs-number">7</span>, <span class="hljs-function"><s
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/writable.iwritablemock.html">IWritableMock</a>.<a href="../interfaces/writable.iwritablemock.html#setdefaultencoding">setDefaultEncoding</a></p>
 								<p>Inherited from Duplex.setDefaultEncoding</p>
 								<ul>
 									<li>Defined in node_modules/@types/node/stream.d.ts:221</li>
@@ -2556,6 +2610,7 @@ lduplex.write(<span class="hljs-number">7</span>, <span class="hljs-function"><s
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/readable.ireadablemock.html">IReadableMock</a>.<a href="../interfaces/readable.ireadablemock.html#setencoding">setEncoding</a></p>
 								<p>Inherited from Readable.setEncoding</p>
 								<ul>
 									<li>Defined in node_modules/@types/node/stream.d.ts:27</li>
@@ -2580,6 +2635,7 @@ lduplex.write(<span class="hljs-number">7</span>, <span class="hljs-function"><s
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/readable.ireadablemock.html">IReadableMock</a>.<a href="../interfaces/readable.ireadablemock.html#setmaxlisteners">setMaxListeners</a></p>
 								<p>Inherited from EventEmitter.setMaxListeners</p>
 								<p>Overrides EventEmitter.setMaxListeners</p>
 								<ul>
@@ -2605,6 +2661,7 @@ lduplex.write(<span class="hljs-number">7</span>, <span class="hljs-function"><s
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/writable.iwritablemock.html">IWritableMock</a>.<a href="../interfaces/writable.iwritablemock.html#uncork">uncork</a></p>
 								<p>Inherited from Duplex.uncork</p>
 								<ul>
 									<li>Defined in node_modules/@types/node/stream.d.ts:226</li>
@@ -2623,6 +2680,7 @@ lduplex.write(<span class="hljs-number">7</span>, <span class="hljs-function"><s
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/readable.ireadablemock.html">IReadableMock</a>.<a href="../interfaces/readable.ireadablemock.html#unpipe">unpipe</a></p>
 								<p>Inherited from Readable.unpipe</p>
 								<ul>
 									<li>Defined in node_modules/@types/node/stream.d.ts:31</li>
@@ -2647,6 +2705,7 @@ lduplex.write(<span class="hljs-number">7</span>, <span class="hljs-function"><s
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/readable.ireadablemock.html">IReadableMock</a>.<a href="../interfaces/readable.ireadablemock.html#unshift">unshift</a></p>
 								<p>Inherited from Readable.unshift</p>
 								<ul>
 									<li>Defined in node_modules/@types/node/stream.d.ts:32</li>
@@ -2671,6 +2730,7 @@ lduplex.write(<span class="hljs-number">7</span>, <span class="hljs-function"><s
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/readable.ireadablemock.html">IReadableMock</a>.<a href="../interfaces/readable.ireadablemock.html#wrap">wrap</a></p>
 								<p>Inherited from Readable.wrap</p>
 								<ul>
 									<li>Defined in node_modules/@types/node/stream.d.ts:33</li>
@@ -2780,6 +2840,7 @@ lduplex.write(<span class="hljs-number">7</span>, <span class="hljs-function"><s
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/readable.ireadablemock.html">IReadableMock</a>.<a href="../interfaces/readable.ireadablemock.html#listenercount-1">listenerCount</a></p>
 								<p>Inherited from EventEmitter.listenerCount</p>
 								<ul>
 									<li>Defined in node_modules/@types/node/events.d.ts:8</li>
@@ -2814,6 +2875,9 @@ lduplex.write(<span class="hljs-number">7</span>, <span class="hljs-function"><s
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class=" tsd-kind-external-module">
+						<a href="../modules/_test_.html">"test"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
 						<a href="../modules/constant.html">constant</a>
 					</li>
 					<li class="current tsd-kind-external-module">
@@ -2842,6 +2906,12 @@ lduplex.write(<span class="hljs-number">7</span>, <span class="hljs-function"><s
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
 								<a href="duplex.duplexmock.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="duplex.duplexmock.html#_readablestate" class="tsd-kind-icon">_readable<wbr>State</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="duplex.duplexmock.html#_writablestate" class="tsd-kind-icon">_writable<wbr>State</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="duplex.duplexmock.html#data" class="tsd-kind-icon">data</a>
