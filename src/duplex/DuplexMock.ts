@@ -4,8 +4,8 @@
 import {Duplex, DuplexOptions} from 'stream'
 
 import applyMixins from '../helpers/applyMixins'
-import {ReadableMock} from '../readable'
-import {WritableMock} from '../writable'
+import {IReadableMock, ReadableMock} from '../readable'
+import {IWritableMock, WritableMock} from '../writable'
 
 /**
  * DuplexMock extends both [[WritableMock]] and [[ReadableMock]].
@@ -33,14 +33,17 @@ import {WritableMock} from '../writable'
  * })
  * ```
  */
-class DuplexMock extends Duplex implements WritableMock, ReadableMock {
+class DuplexMock extends Duplex implements IWritableMock, IReadableMock {
   public it: IterableIterator<any>;
   public objectMode: boolean;
-  public readableObjectMode: boolean;
-  public writableObjectMode: boolean;
+  public readonly readableObjectMode: boolean;
+  public readonly writableObjectMode: boolean;
   public data: any[];
   public flatData: any[] | Buffer;
   public encoding: BufferEncoding;
+
+  private _readableState;
+  private _writableState;
 
   /**
    * @param source Source data for reader. If null will be linked to writer output
@@ -51,13 +54,12 @@ class DuplexMock extends Duplex implements WritableMock, ReadableMock {
     options: DuplexOptions = {}
   ) {
     super(options);
-    this.objectMode = options.objectMode;
-    this.readableObjectMode = options.objectMode || options.readableObjectMode;
-    this.writableObjectMode = options.objectMode || options.writableObjectMode;
     this.data = [];
     if (source) {
       this.it = source[Symbol.iterator]();
-    } else if (this.readableObjectMode === this.writableObjectMode) {
+    } else if (
+      this._readableState.objectMode === this._writableState.objectMode
+    ) {
       this.it = this.data[Symbol.iterator]();
     } else {
       throw new Error(

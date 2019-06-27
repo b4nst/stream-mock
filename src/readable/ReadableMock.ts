@@ -16,8 +16,9 @@ import IReadableMock from './IReadableMock'
 export default class ReadableMock extends Readable implements IReadableMock {
   public it: IterableIterator<any>;
   public objectMode: boolean;
-  public readableObjectMode: boolean;
   public encoding: BufferEncoding;
+
+  private _readableState;
 
   /**
    *
@@ -31,9 +32,8 @@ export default class ReadableMock extends Readable implements IReadableMock {
     warnOnce(WARNINGS.DEP_READABLE_MOCK);
     super(options);
     this.objectMode = options.objectMode;
-    this.readableObjectMode = options.objectMode;
     this.encoding = options.encoding
-      ? options.encoding as BufferEncoding
+      ? (options.encoding as BufferEncoding)
       : 'utf8';
     this.it = source[Symbol.iterator]();
   }
@@ -44,7 +44,7 @@ export default class ReadableMock extends Readable implements IReadableMock {
 
     if (next.done) {
       this.push(null);
-    } else if (this.objectMode || this.readableObjectMode) {
+    } else if (this._readableState.objectMode) {
       this.push(next.value);
     } else {
       this.push(any2Buffer(next.value, this.encoding));
