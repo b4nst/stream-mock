@@ -1,6 +1,6 @@
 # Stream Mock
 
-[![Build Status](https://travis-ci.org/BastienAr/stream-mock.svg?branch=master)](https://travis-ci.org/BastienAr/stream-mock)
+[![Build Status](https://travis-ci.org/b4nst/stream-mock.svg?branch=master)](https://travis-ci.org/BastienAr/stream-mock)
 [![Actions Status](https://wdp9fww0r9.execute-api.us-west-2.amazonaws.com/production/badge/b4nst/stream-mock)](https://wdp9fww0r9.execute-api.us-west-2.amazonaws.com/production/results/b4nst/stream-mock)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/a2f2d69c643398bef333/test_coverage)](https://codeclimate.com/github/BastienAr/stream-mock/test_coverage)
 [![Maintainability](https://api.codeclimate.com/v1/badges/a2f2d69c643398bef333/maintainability)](https://codeclimate.com/github/BastienAr/stream-mock/maintainability)
