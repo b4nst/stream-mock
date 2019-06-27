@@ -1,10 +1,14 @@
 # Stream Mock
 
-[![Build Status](https://travis-ci.org/b4nst/stream-mock.svg?branch=master)](https://travis-ci.org/BastienAr/stream-mock)
-[![Actions Status](https://wdp9fww0r9.execute-api.us-west-2.amazonaws.com/production/badge/b4nst/stream-mock)](https://wdp9fww0r9.execute-api.us-west-2.amazonaws.com/production/results/b4nst/stream-mock)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/a2f2d69c643398bef333/test_coverage)](https://codeclimate.com/github/BastienAr/stream-mock/test_coverage)
-[![Maintainability](https://api.codeclimate.com/v1/badges/a2f2d69c643398bef333/maintainability)](https://codeclimate.com/github/BastienAr/stream-mock/maintainability)
-[![Greenkeeper badge](https://badges.greenkeeper.io/b4nst/stream-mock.svg)](https://greenkeeper.io/)
+[![Travis (.org)](https://img.shields.io/travis/b4nst/stream-mock.svg?logo=travis-ci)](https://travis-ci.org/b4nst/stream-mock)
+[![npm](https://img.shields.io/npm/v/stream-mock.svg?logo=npm)](https://www.npmjs.com/package/stream-mock)
+[![Snyk Vulnerabilities for GitHub Repo](https://img.shields.io/snyk/vulnerabilities/github/b4nst/stream-mock.svg?logo=snyk)](https://github.com/b4nst/stream-mock/network/alerts)
+[![Code Climate coverage](https://img.shields.io/codeclimate/coverage/b4nst/stream-mock.svg?logo=code-climate)](https://codeclimate.com/github/b4nst/stream-mock)
+[![Code Climate maintainability](https://img.shields.io/codeclimate/maintainability/b4nst/stream-mock.svg?logo=code-climate)](https://codeclimate.com/github/b4nst/stream-mock)
+[![Greenkeeper badge](https://img.shields.io/badge/-enabled-green.svg?logo=greenkeeper&color=grey)](https://greenkeeper.io/)
+![node](https://img.shields.io/node/v/stream-mock.svg?label=&logo=node.js&color=grey)
+![npm type definitions](https://img.shields.io/npm/types/stream-mock.svg)
+![GitHub](https://img.shields.io/github/license/b4nst/stream-mock.svg)
 
 Mock nodejs streams.
 
