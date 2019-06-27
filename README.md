@@ -4,7 +4,7 @@
 [![Actions Status](https://wdp9fww0r9.execute-api.us-west-2.amazonaws.com/production/badge/b4nst/stream-mock)](https://wdp9fww0r9.execute-api.us-west-2.amazonaws.com/production/results/b4nst/stream-mock)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/a2f2d69c643398bef333/test_coverage)](https://codeclimate.com/github/BastienAr/stream-mock/test_coverage)
 [![Maintainability](https://api.codeclimate.com/v1/badges/a2f2d69c643398bef333/maintainability)](https://codeclimate.com/github/BastienAr/stream-mock/maintainability)
-[![Greenkeeper badge](https://badges.greenkeeper.io/BastienAr/stream-mock.svg)](https://greenkeeper.io/)
+[![Greenkeeper badge](https://badges.greenkeeper.io/b4nst/stream-mock.svg)](https://greenkeeper.io/)
 
 Mock nodejs streams.
 
