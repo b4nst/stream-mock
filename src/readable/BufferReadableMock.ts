@@ -21,7 +21,7 @@ import IReadableMock from './IReadableMock'
 export default class BufferReadableMock extends Readable
   implements IReadableMock {
   public it: IterableIterator<any>;
-  private encoding: BufferEncoding;
+  public encoding: BufferEncoding;
 
   /**
    *
@@ -34,9 +34,6 @@ export default class BufferReadableMock extends Readable
   ) {
     options.objectMode = false;
     super(options);
-    this.encoding = options.encoding
-      ? (options.encoding as BufferEncoding)
-      : 'utf8';
     this.it = source[Symbol.iterator]();
   }
 

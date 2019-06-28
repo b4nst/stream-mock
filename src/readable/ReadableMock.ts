@@ -31,10 +31,6 @@ export default class ReadableMock extends Readable implements IReadableMock {
   ) {
     warnOnce(WARNINGS.DEP_READABLE_MOCK);
     super(options);
-    this.objectMode = options.objectMode;
-    this.encoding = options.encoding
-      ? (options.encoding as BufferEncoding)
-      : 'utf8';
     this.it = source[Symbol.iterator]();
   }
 
