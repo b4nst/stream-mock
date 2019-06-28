@@ -6,7 +6,6 @@ import {Writable, WritableOptions} from 'stream'
 import {WARNINGS} from '../constant'
 import {chunk2Buffer} from '../helpers'
 import warnOnce from '../helpers/warnOnce'
-import {IChunk} from '../types'
 
 import IWritableMock from './IWritableMock'
 
@@ -46,14 +45,6 @@ export default class WritableMock extends Writable implements IWritableMock {
     this.data.push(
       this._writableState.objectMode ? chunk : chunk2Buffer({ chunk, encoding })
     );
-    callback();
-  }
-
-  // tslint:disable-next-line:function-name Not responsible of this function name
-  public _writev?(chunks: IChunk[], callback: (error?: Error | null) => void) {
-    this.data = this._writableState.objectMode
-      ? this.data.concat(chunks.map(c => c.chunk))
-      : this.data.concat(chunks.map(chunk2Buffer));
     callback();
   }
 

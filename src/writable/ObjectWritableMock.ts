@@ -56,12 +56,6 @@ export default class ObjectWritableMock extends Writable
   }
 
   // tslint:disable-next-line:function-name Not responsible of this function name
-  public _writev(chunks: IChunk[], callback: (error?: Error | null) => void) {
-    this.data = this.data.concat(chunks.map(c => c.chunk));
-    callback();
-  }
-
-  // tslint:disable-next-line:function-name Not responsible of this function name
   public _final(callback: (error?: Error | null) => void) {
     this.flatData = [].concat(...this.data);
     callback();
