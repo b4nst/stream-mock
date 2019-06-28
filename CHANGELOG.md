@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ## [Unreleased]
 ### Added
 - This changelog file
+- Tests
+
+### Removed
+- `_writev` method as pushing to an array is always sequential
+- some duplicate code with super constructors (settings encoding, objecMode, etc...)
 
 ## [2.0.3] - 2019-06-27
 ### Added
