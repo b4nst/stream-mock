@@ -59,7 +59,7 @@ export default class Rounder extends Transform {
 Now you need / want to test it.
 
 ```javascript
-import {ObjectReadableMock, ObjectWritableMock, DuplexMock } from 'stream-mock';
+import { ObjectReadableMock, ObjectWritableMock } from 'stream-mock';
 import chai from 'chai';
 
 import Rounder from 'the/seven/bloody/hells';
