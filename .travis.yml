@@ -32,4 +32,4 @@ deploy:
   skip_cleanup: true
   on:
     tags: true
-    repo: BastienAr/stream-mock
+    repo:  b4nst/stream-mock
