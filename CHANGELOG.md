@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Added
 - This changelog file
 - Tests
+- Link to generate types in package.json /[@RAnders00](https://github.com/RAnders00)
 
 ### Removed
 - `_writev` method as pushing to an array is always sequential
