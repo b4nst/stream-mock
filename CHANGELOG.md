@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [2.0.4] - 2019-07-01
 ### Added
 - This changelog file
 - Tests
@@ -52,7 +54,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 __________________________________________________________________________________________
 
-[Unreleased]: https://github.com/b4nst/stream-mock/compare/v2.0.3...HEAD
+[Unreleased]: https://github.com/b4nst/stream-mock/compare/v2.0.4...HEAD
+[2.0.4]: https://github.com/b4nst/stream-mock/compare/v2.0.3...v2.0.4
 [2.0.3]: https://github.com/b4nst/stream-mock/compare/v2.0.2...v2.0.3
 [2.0.2]: https://github.com/b4nst/stream-mock/compare/v1.2.0...v2.0.2
 [1.2.0]: https://github.com/b4nst/stream-mock/compare/v1.1.0...v1.2.0
