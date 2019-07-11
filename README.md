@@ -87,7 +87,7 @@ describe('Test me if you can', (done) => {
 
 ### API documentation
 
-Full API doc is hosted [here](https://bastienar.github.io/stream-mock/)
+Full API doc is hosted [here](https://b4nst.github.io/stream-mock/)
 
 ----------------
 
