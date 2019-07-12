@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+### Fixed
+- Fix links in README
+
 ## [2.0.5] - 2019-07-01
 ### Changed
 - travis config to deploy
