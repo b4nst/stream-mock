@@ -1,6 +1,6 @@
 # Stream Mock
 
-[![Travis (.org)](https://img.shields.io/travis/b4nst/stream-mock.svg?logo=travis-ci)](https://travis-ci.org/b4nst/stream-mock)
+[![Github Action](https://github.com/b4nst/stream-mock/workflows/quicktest/badge.svg)](https://github.com/b4nst/stream-mock/actions)
 [![npm](https://img.shields.io/npm/v/stream-mock.svg?logo=npm)](https://www.npmjs.com/package/stream-mock)
 [![Snyk Vulnerabilities for GitHub Repo](https://img.shields.io/snyk/vulnerabilities/github/b4nst/stream-mock.svg?logo=snyk)](https://github.com/b4nst/stream-mock/network/alerts)
 [![Code Climate coverage](https://img.shields.io/codeclimate/coverage/b4nst/stream-mock.svg?logo=code-climate)](https://codeclimate.com/github/b4nst/stream-mock)
