@@ -26,6 +26,7 @@
     "doc:3-sanitize": "rexreplace \"$PWD/\" '' --quiet docs/**/*.html",
     "clean": "rimraf lib coverage .nyc_output yarn-error.log test-result.xml lint-result.xml",
     "lint": "tslint src/**/*.ts",
+    "prepublishOnly": "run-s clean build",
     "test": "jest --coverage"
   },
   "dependencies": {},
