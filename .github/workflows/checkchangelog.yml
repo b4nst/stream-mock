@@ -10,6 +10,4 @@ jobs:
       name: Check that CHANGELOG.md has been modified
       runs-on: ubuntu-latest
       steps:
-      - uses: nholden/modified-file-filter-action@master
-        with:
-          args: "CHANGELOG.md"
+      - run: cat $GITHUB_EVENT_PATH | jq -c '.pull_request.url + "/files"' | xargs curl --silent |  jq -c 'map(.filename)' | grep -q 'CHANGELOG.md'
