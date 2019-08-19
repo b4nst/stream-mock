@@ -8,7 +8,7 @@ on:
 jobs:
   check:
       name: Check that CHANGELOG.md has been modified
-
+      runs-on: ubuntu-latest
       steps:
       - uses: nholden/modified-file-filter-action@master
         with:
