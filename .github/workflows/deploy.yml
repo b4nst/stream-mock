@@ -2,7 +2,9 @@ name: Deploy
 
 on:
   push:
-    tags:
+    branches:    # Array of patterns that match refs/heads
+    - master     # Push events on master branch
+    tags:        # Array of patterns that match refs/tags.
     - v*
 
 jobs:
