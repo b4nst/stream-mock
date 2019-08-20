@@ -13,9 +13,15 @@ jobs:
       uses: actions/setup-node@v1.1.0
     - name: Instal dependencies
       run: npm install
+    - name: Debug
+      env:
+        CC_TEST_REPORTER_ID: ${{ secrets.code_climate }}}
+      run: |
+        echo ${CC_TEST_REPORTER_ID} 
+        echo $CC_TEST_REPORTER_ID
     - name: Test & publish coverage
       uses: paambaati/codeclimate-action@v2.1.0
       env:
         CC_TEST_REPORTER_ID: ${{ secrets.code_climate }}}
       with:
-        coverageCommand: echo ID is ${CC_TEST_REPORTER_ID} 
+        coverageCommand: npm test
