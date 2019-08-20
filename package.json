@@ -26,11 +26,12 @@
     "doc:3-sanitize": "rexreplace \"$PWD/\" '' --quiet docs/**/*.html",
     "clean": "rimraf lib coverage .nyc_output yarn-error.log test-result.xml lint-result.xml",
     "lint": "tslint src/**/*.ts",
+    "prepublishOnly": "run-s clean build",
     "test": "jest --coverage"
   },
   "dependencies": {},
   "devDependencies": {
-    "@types/jest": "^24.0.11",
+    "@types/jest": "^24.0.18",
     "@types/node": "^12.0.10",
     "@types/sinon": "^7.0.11",
     "husky": "^3.0.0",
@@ -40,8 +41,8 @@
     "prettier": "^1.16.4",
     "prettier-package-json": "^2.1.0",
     "rexreplace": "^4.1.1",
-    "rimraf": "^2.6.3",
     "sinon": "^7.4.1",
+    "rimraf": "^3.0.0",
     "ts-jest": "^24.0.2",
     "tslint": "^5.15.0",
     "tslint-config-prettier": "^1.18.0",

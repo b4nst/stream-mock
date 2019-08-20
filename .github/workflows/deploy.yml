@@ -1,0 +1,29 @@
+name: Deploy
+
+on:
+  push:
+    branches:    # Array of patterns that match refs/heads
+    - master     # Push events on master branch
+    tags:        # Array of patterns that match refs/tags.
+    - v*
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - run: npm ci
+      - run: npm test
+
+  publish-npm:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
