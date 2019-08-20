@@ -17,5 +17,7 @@ jobs:
       uses: paambaati/codeclimate-action@v2.1.0
       env:
         CC_TEST_REPORTER_ID: 87c5f5e63b65170b48b4bd05272d3702d7fcfa5f78636b1255a8282ca8bbbbe3
+        GIT_COMMIT_SHA: ${{ GITHUB_SHA }}
+        GIT_BRANCH: ${{ GITHUB_REF }}
       with:
         coverageCommand: npm test
