@@ -14,7 +14,7 @@ jobs:
     - name: Instal dependencies
       run: npm install
     - name: Test & publish coverage
-      uses: b4nst/codeclimate-action@master
+      uses: b4nst/codeclimate-action@v2-release
       env:
         CC_TEST_REPORTER_ID: 87c5f5e63b65170b48b4bd05272d3702d7fcfa5f78636b1255a8282ca8bbbbe3
       with:
