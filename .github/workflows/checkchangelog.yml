@@ -3,7 +3,11 @@ name: Changelog updated
 on:
   pull_request:
       branches:
-        - master
+      - master
+      paths:
+      - src/*
+      - LICENSE
+      - '*.md'
 
 jobs:
   check:
